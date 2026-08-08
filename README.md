@@ -129,8 +129,7 @@ ideophones_in_Turkish/
 │   ├── tables/
 │   └── models/
 ├── .gitignore
-├── README.md
-└── renv.lock
+└──  README.md
 ```
 
 Empty directories may not appear on GitHub until they contain a file. Directory-level `README.md` files may therefore be used to document their intended contents.
@@ -244,13 +243,6 @@ source("code/scripts/07_analyze_experiment_3.R")
 ```
 
 Do not use `setwd()` inside the analysis scripts. All file paths should be defined relative to the repository root.
-
-The exact package environment will be recorded in `renv.lock`. After cloning or downloading the repository, the required package versions can be restored with:
-
-```r
-install.packages("renv")
-renv::restore()
-```
 
 ## Outputs
 
