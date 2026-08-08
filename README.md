@@ -101,6 +101,8 @@ The repository is being organized using a reproducible computational social scie
 ```text
 ideophones_in_Turkish/
 ├── code/
+│   └── legacy/
+│   │   └── Sevgi_Chapter4.R
 │   └── scripts/
 │       ├── 01_validate_inputs.R
 │       ├── 02_prepare_processed_data.R
@@ -111,6 +113,9 @@ ideophones_in_Turkish/
 │       └── 07_analyze_experiment_3.R
 ├── data/
 │   ├── input/
+│   │   ├── Experiment_I.xlsx
+│   │   ├── Experiment_II.xlsx
+│   │   └── Experiment_III.xlsx
 │   ├── processed/
 │   ├── codebook/
 │   │   ├── README.md
@@ -123,12 +128,6 @@ ideophones_in_Turkish/
 │   ├── figures/
 │   ├── tables/
 │   └── models/
-├── legacy/
-│   ├── Organized/
-│   │   ├── Experiment_I.xlsx
-│   │   ├── Experiment_II.xlsx
-│   │   └── Experiment_III.xlsx
-│   └── Sevgi_Chapter4.R
 ├── .gitignore
 ├── README.md
 └── renv.lock
@@ -217,7 +216,7 @@ The source datasets remain unchanged throughout the workflow.
 
 ## Original dissertation analysis
 
-The original dissertation analysis is preserved in `legacy/Sevgi_Chapter4.R`, together with the organized Excel workbooks originally used by the script.
+The original dissertation analysis is preserved in `code/legacy/Sevgi_Chapter4.R`, together with the organized Excel workbooks originally used by the script.
 
 The original analyses include:
 
