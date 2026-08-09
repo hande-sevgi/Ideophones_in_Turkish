@@ -1,0 +1,8 @@
+"diagnostic","value"
+"convergence_code","0"
+"maximum_absolute_gradient","0.000438605809449655"
+"positive_definite_hessian","TRUE"
+"hessian_condition_number","55.1308753468509"
+"log_likelihood","-493.946142986233"
+"AIC","1013.89228597247"
+"BIC","1065.25063915611"

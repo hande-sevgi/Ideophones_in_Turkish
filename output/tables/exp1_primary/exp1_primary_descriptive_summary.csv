@@ -1,0 +1,9 @@
+"continuation_type","adverb_type","negation_position","observations","participants","mean_rating","sd_rating","se_rating","median_rating"
+"match","temporal","second_clause",50,50,4.12,1.30368394817712,0.184368752056019,5
+"match","temporal","first_clause",50,50,4.46,0.838122293935579,0.118528391501094,5
+"match","manner","second_clause",42,42,3.85714285714286,1.38935725745763,0.214382479119856,4
+"match","manner","first_clause",50,50,4.34,1.04217198627654,0.147385375731759,5
+"mismatch","temporal","second_clause",50,50,3.3,1.32864823126702,0.187899234828084,4
+"mismatch","temporal","first_clause",50,50,2.76,1.33340135880892,0.188571428571429,3
+"mismatch","manner","second_clause",42,42,3.78571428571429,1.31660528532735,0.203156606103806,4
+"mismatch","manner","first_clause",50,50,3.18,1.4803474495633,0.209352744019684,3.5

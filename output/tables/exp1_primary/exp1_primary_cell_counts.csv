@@ -1,0 +1,9 @@
+"continuation_type","adverb_type","negation_position","observations"
+"match","temporal","second_clause",50
+"mismatch","temporal","second_clause",50
+"match","manner","second_clause",42
+"mismatch","manner","second_clause",42
+"match","temporal","first_clause",50
+"mismatch","temporal","first_clause",50
+"match","manner","first_clause",50
+"mismatch","manner","first_clause",50
