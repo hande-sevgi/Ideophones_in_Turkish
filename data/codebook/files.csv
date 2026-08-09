@@ -1,0 +1,5 @@
+file_name,study,data_stage,description,source,manually_edit
+PreliminaryStudyContinuationTask.csv,Preliminary study,input,Responses from the preliminary continuation task used to inform stimulus construction,OSF,no
+ContinuationTask_Canonical.csv,Experiment I,input,Original participant responses for the canonical-order contrastive-context experiment,OSF,no
+ContinuationTask_Noncanonical.csv,Experiment II,input,Original participant responses for the noncanonical-order information-structure experiment,OSF,no
+Monoclause.csv,Experiment III,input,Original participant responses for the single-clause ideophone experiment,OSF,no
