@@ -708,8 +708,9 @@ adverb_emmeans <- emmeans::emmeans(
 
 pairwise_unadjusted <- as.data.frame(
   summary(
-    emmeans::pairs(
+    emmeans::contrast(
       adverb_emmeans,
+      method = "pairwise",
       adjust = "none"
     ),
     infer = c(TRUE, FALSE),
