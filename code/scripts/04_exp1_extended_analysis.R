@@ -713,7 +713,7 @@ pairwise_unadjusted <- as.data.frame(
       method = "pairwise",
       adjust = "none"
     ),
-    infer = c(TRUE, FALSE),
+    infer = c(TRUE, TRUE),
     level = 0.95
   )
 )
@@ -754,7 +754,7 @@ prediction_grid <- emmeans::emmeans(
 predictions_raw <- as.data.frame(
   summary(
     prediction_grid,
-    infer = c(TRUE, FALSE),
+    infer = c(TRUE, TRUE),
     level = 0.95
   )
 )
