@@ -3,7 +3,7 @@
 .AppleDouble
 .LSOverride
 
-# R session and history files
+# R session files
 .Rhistory
 .RData
 .Ruserdata
@@ -11,27 +11,20 @@
 # RStudio project files
 .Rproj.user/
 
-# R package and cache directories
+# R cache directories
 .Rcache/
-renv/library/
-renv/staging/
 
 # Temporary and backup files
+*.log
 *.tmp
 *.temp
 *.bak
 *~
 ~$*
 
-# Log files
-*.log
-
-# Locally generated reports
-output/reports/*.html
-output/reports/*.pdf
-
 # Private or sensitive materials
 private/
 confidential/
 data/private/
+data/private_raw/
 data/input/private/
