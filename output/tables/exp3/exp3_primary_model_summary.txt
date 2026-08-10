@@ -1,0 +1,39 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: primary_formula
+   Data: exp3_primary
+
+REML criterion at convergence: 8517
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.1074 -0.5064  0.0371  0.6961  3.2962 
+
+Random effects:
+ Groups         Name        Variance Std.Dev.
+ participant_id (Intercept) 283.39   16.834  
+ scenario       (Intercept)  16.55    4.068  
+ Residual                   559.98   23.664  
+Number of obs: 912, groups:  participant_id, 114; scenario, 8
+
+Fixed effects:
+                                          Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)                                95.8229     3.0773  79.2458  31.139  < 2e-16 ***
+adverb_typeconverbial                      -7.0188     3.1349 784.1650  -2.239  0.02544 *  
+adverb_typereduplication                   -3.7366     3.1355 784.3281  -1.192  0.23373    
+adverb_typetemporal                        -0.8292     3.1355 784.3281  -0.264  0.79149    
+polaritynegative                          -39.1040     3.1354 784.3011 -12.472  < 2e-16 ***
+adverb_typeconverbial:polaritynegative      1.5889     4.4333 784.1377   0.358  0.72015    
+adverb_typereduplication:polaritynegative   2.4336     4.4342 784.3146   0.549  0.58329    
+adverb_typetemporal:polaritynegative       14.3042     4.4342 784.3146   3.226  0.00131 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) advrb_typc advrb_typr advrb_typt plrtyn advrb_typc: advrb_typr:
+advrb_typcn -0.509                                                                
+advrb_typrd -0.509  0.500                                                         
+advrb_typtm -0.509  0.500      0.500                                              
+polartyngtv -0.509  0.500      0.500      0.500                                   
+advrb_typc:  0.360 -0.707     -0.353     -0.354     -0.707                        
+advrb_typr:  0.360 -0.353     -0.707     -0.354     -0.707  0.500                 
+advrb_typt:  0.360 -0.353     -0.354     -0.707     -0.707  0.500       0.500     

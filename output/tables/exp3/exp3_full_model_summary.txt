@@ -1,0 +1,88 @@
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: full_formula
+   Data: exp3_full
+
+REML criterion at convergence: 16967.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.4000 -0.5360  0.0429  0.7329  3.5129 
+
+Random effects:
+ Groups         Name        Variance Std.Dev.
+ participant_id (Intercept) 288.87   16.996  
+ scenario       (Intercept)  10.32    3.213  
+ Residual                   579.06   24.064  
+Number of obs: 1824, groups:  participant_id, 114; scenario, 8
+
+Fixed effects:
+                                                                           Estimate
+(Intercept)                                                                 95.8142
+adverb_typeconverbial                                                       -7.0274
+adverb_typereduplication                                                    -3.6891
+adverb_typetemporal                                                         -0.8330
+iconicity_conditionnonideophone                                              0.1404
+polaritynegative                                                           -39.0787
+adverb_typeconverbial:iconicity_conditionnonideophone                        3.8684
+adverb_typereduplication:iconicity_conditionnonideophone                    -3.0351
+adverb_typetemporal:iconicity_conditionnonideophone                         -5.2193
+adverb_typeconverbial:polaritynegative                                       1.6944
+adverb_typereduplication:polaritynegative                                    2.3596
+adverb_typetemporal:polaritynegative                                        14.1709
+iconicity_conditionnonideophone:polaritynegative                            -1.0877
+adverb_typeconverbial:iconicity_conditionnonideophone:polaritynegative       0.8772
+adverb_typereduplication:iconicity_conditionnonideophone:polaritynegative    1.7719
+adverb_typetemporal:iconicity_conditionnonideophone:polaritynegative         4.5351
+                                                                          Std. Error
+(Intercept)                                                                   2.9841
+adverb_typeconverbial                                                         3.1876
+adverb_typereduplication                                                      3.1879
+adverb_typetemporal                                                           3.1879
+iconicity_conditionnonideophone                                               3.1873
+polaritynegative                                                              3.1879
+adverb_typeconverbial:iconicity_conditionnonideophone                         4.5076
+adverb_typereduplication:iconicity_conditionnonideophone                      4.5076
+adverb_typetemporal:iconicity_conditionnonideophone                           4.5076
+adverb_typeconverbial:polaritynegative                                        4.5079
+adverb_typereduplication:polaritynegative                                     4.5084
+adverb_typetemporal:polaritynegative                                          4.5084
+iconicity_conditionnonideophone:polaritynegative                              4.5076
+adverb_typeconverbial:iconicity_conditionnonideophone:polaritynegative        6.3746
+adverb_typereduplication:iconicity_conditionnonideophone:polaritynegative     6.3746
+adverb_typetemporal:iconicity_conditionnonideophone:polaritynegative          6.3746
+                                                                                 df t value
+(Intercept)                                                                174.9925  32.108
+adverb_typeconverbial                                                     1688.1530  -2.205
+adverb_typereduplication                                                  1688.3048  -1.157
+adverb_typetemporal                                                       1688.3048  -0.261
+iconicity_conditionnonideophone                                           1687.9999   0.044
+polaritynegative                                                          1688.2796 -12.259
+adverb_typeconverbial:iconicity_conditionnonideophone                     1687.9999   0.858
+adverb_typereduplication:iconicity_conditionnonideophone                  1687.9999  -0.673
+adverb_typetemporal:iconicity_conditionnonideophone                       1687.9999  -1.158
+adverb_typeconverbial:polaritynegative                                    1688.1276   0.376
+adverb_typereduplication:polaritynegative                                 1688.2923   0.523
+adverb_typetemporal:polaritynegative                                      1688.2923   3.143
+iconicity_conditionnonideophone:polaritynegative                          1687.9999  -0.241
+adverb_typeconverbial:iconicity_conditionnonideophone:polaritynegative    1687.9999   0.138
+adverb_typereduplication:iconicity_conditionnonideophone:polaritynegative 1687.9999   0.278
+adverb_typetemporal:iconicity_conditionnonideophone:polaritynegative      1687.9999   0.711
+                                                                          Pr(>|t|)    
+(Intercept)                                                                 <2e-16 ***
+adverb_typeconverbial                                                       0.0276 *  
+adverb_typereduplication                                                    0.2474    
+adverb_typetemporal                                                         0.7939    
+iconicity_conditionnonideophone                                             0.9649    
+polaritynegative                                                            <2e-16 ***
+adverb_typeconverbial:iconicity_conditionnonideophone                       0.3909    
+adverb_typereduplication:iconicity_conditionnonideophone                    0.5008    
+adverb_typetemporal:iconicity_conditionnonideophone                         0.2471    
+adverb_typeconverbial:polaritynegative                                      0.7071    
+adverb_typereduplication:polaritynegative                                   0.6008    
+adverb_typetemporal:polaritynegative                                        0.0017 ** 
+iconicity_conditionnonideophone:polaritynegative                            0.8093    
+adverb_typeconverbial:iconicity_conditionnonideophone:polaritynegative      0.8906    
+adverb_typereduplication:iconicity_conditionnonideophone:polaritynegative   0.7811    
+adverb_typetemporal:iconicity_conditionnonideophone:polaritynegative        0.4769    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

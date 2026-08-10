@@ -1,0 +1,49 @@
+"effect","contrast","context","estimate","std_error","lower_95","upper_95","statistic","p_value","p_value_holm","significance","display_label"
+"Continuation contrast","match - mismatch","adverb type = temporal; negation position = second clause",-0.716227433687761,0.415836623288838,-1.53125223878663,0.0987973714111109,-1.72237699513608,0.0850012482279141,0.170002496455828,"Holm-adjusted p >= .05","Continuation contrast: match - mismatch
+adverb type = temporal; negation position = second clause"
+"Continuation contrast","match - mismatch","adverb type = manner; negation position = second clause",-0.839596274305313,0.395995102388593,-1.61573241304121,-0.0634601355694199,-2.12021883412439,0.0339875948094033,0.125150268366218,"Holm-adjusted p >= .05","Continuation contrast: match - mismatch
+adverb type = manner; negation position = second clause"
+"Continuation contrast","match - mismatch","adverb type = ideophone; negation position = second clause",-1.74904117814037,0.387305673087467,-2.50814634839985,-0.989936007880891,-4.51591933626383,6.30426601612334e-06,3.782559609674e-05,"Holm-adjusted p < .05","Continuation contrast: match - mismatch
+adverb type = ideophone; negation position = second clause"
+"Continuation contrast","match - mismatch","adverb type = temporal; negation position = first clause",-0.878296514000039,0.407865762020553,-1.67769871808731,-0.0788943099127702,-2.15339603316784,0.0312875670915546,0.125150268366218,"Holm-adjusted p >= .05","Continuation contrast: match - mismatch
+adverb type = temporal; negation position = first clause"
+"Continuation contrast","match - mismatch","adverb type = manner; negation position = first clause",-0.261801985583953,0.377596773231632,-1.00187806179649,0.478274090628584,-0.693337454510908,0.488097803287184,0.488097803287184,"Holm-adjusted p >= .05","Continuation contrast: match - mismatch
+adverb type = manner; negation position = first clause"
+"Continuation contrast","match - mismatch","adverb type = ideophone; negation position = first clause",-0.89380502170808,0.371097630459706,-1.62114301215726,-0.166467031258903,-2.40854413594842,0.0160162895723096,0.0800814478615479,"Holm-adjusted p >= .05","Continuation contrast: match - mismatch
+adverb type = ideophone; negation position = first clause"
+"Adverb-type contrast","temporal - manner","continuation type = match; negation position = second clause",0.857505579992347,0.395128795307987,0.0830673719339947,1.6319437880507,2.17019258068488,0.0299922599074696,0.329914858982166,"Holm-adjusted p >= .05","Adverb-type contrast: temporal - manner
+continuation type = match; negation position = second clause"
+"Adverb-type contrast","temporal - ideophone","continuation type = match; negation position = second clause",1.38111291492634,0.390887418103714,0.614987653433212,2.14723817641947,3.53327544188156,0.000410444605862041,0.00492533527034449,"Holm-adjusted p < .05","Adverb-type contrast: temporal - ideophone
+continuation type = match; negation position = second clause"
+"Adverb-type contrast","manner - ideophone","continuation type = match; negation position = second clause",0.523607334933994,0.374508769422419,-0.210416365028363,1.25763103489635,1.39811768824938,0.162077729021385,1,"Holm-adjusted p >= .05","Adverb-type contrast: manner - ideophone
+continuation type = match; negation position = second clause"
+"Adverb-type contrast","temporal - manner","continuation type = mismatch; negation position = second clause",0.734136739374796,0.415344631106557,-0.0799237787661307,1.54819725751572,1.7675363647266,0.0771384444934669,0.771384444934669,"Holm-adjusted p >= .05","Adverb-type contrast: temporal - manner
+continuation type = mismatch; negation position = second clause"
+"Adverb-type contrast","temporal - ideophone","continuation type = mismatch; negation position = second clause",0.348299170473734,0.412687555003695,-0.4605535742014,1.15715191514887,0.843977886540862,0.398681762773589,1,"Holm-adjusted p >= .05","Adverb-type contrast: temporal - ideophone
+continuation type = mismatch; negation position = second clause"
+"Adverb-type contrast","manner - ideophone","continuation type = mismatch; negation position = second clause",-0.385837568901062,0.405026292645276,-1.17967451527758,0.407999377475459,-0.952623510886441,0.340780860571222,1,"Holm-adjusted p >= .05","Adverb-type contrast: manner - ideophone
+continuation type = mismatch; negation position = second clause"
+"Adverb-type contrast","temporal - manner","continuation type = match; negation position = first clause",0.0147617943612184,0.390286068646776,-0.750184843854189,0.779708432576626,0.0378230112399385,0.969828797180825,1,"Holm-adjusted p >= .05","Adverb-type contrast: temporal - manner
+continuation type = match; negation position = first clause"
+"Adverb-type contrast","temporal - ideophone","continuation type = match; negation position = first clause",0.25193775248852,0.382156682084541,-0.497075580848504,1.00095108582554,0.659252511598857,0.509733631584978,1,"Holm-adjusted p >= .05","Adverb-type contrast: temporal - ideophone
+continuation type = match; negation position = first clause"
+"Adverb-type contrast","manner - ideophone","continuation type = match; negation position = first clause",0.237175958127301,0.373170571213967,-0.494224921542313,0.968576837796916,0.635569834340743,0.525056836231686,1,"Holm-adjusted p >= .05","Adverb-type contrast: manner - ideophone
+continuation type = match; negation position = first clause"
+"Adverb-type contrast","temporal - manner","continuation type = mismatch; negation position = first clause",0.631256322777304,0.396267885792019,-0.145414461604883,1.40792710715949,1.59300398899501,0.111159296178685,1,"Holm-adjusted p >= .05","Adverb-type contrast: temporal - manner
+continuation type = mismatch; negation position = first clause"
+"Adverb-type contrast","temporal - ideophone","continuation type = mismatch; negation position = first clause",0.236429244780478,0.397745233588607,-0.543137088075662,1.01599557763662,0.594423829161508,0.552228674466539,1,"Holm-adjusted p >= .05","Adverb-type contrast: temporal - ideophone
+continuation type = mismatch; negation position = first clause"
+"Adverb-type contrast","manner - ideophone","continuation type = mismatch; negation position = first clause",-0.394827077996827,0.377309500542288,-1.13434011008451,0.344685954090854,-1.04642760765197,0.29536365194487,1,"Holm-adjusted p >= .05","Adverb-type contrast: manner - ideophone
+continuation type = mismatch; negation position = first clause"
+"Negation-position contrast","second_clause - first_clause","continuation type = match; adverb type = temporal",1.07335648770657,0.405297917645351,0.278987166112598,1.86772580930054,2.64831483453559,0.00808941504778805,0.0485364902867283,"Holm-adjusted p < .05","Negation-position contrast: second clause - first clause
+continuation type = match; adverb type = temporal"
+"Negation-position contrast","second_clause - first_clause","continuation type = mismatch; adverb type = temporal",0.91128740739429,0.42081755003909,0.0865001652552917,1.73607464953329,2.16551664090445,0.0303481424198726,0.151740712099363,"Holm-adjusted p >= .05","Negation-position contrast: second clause - first clause
+continuation type = mismatch; adverb type = temporal"
+"Negation-position contrast","second_clause - first_clause","continuation type = match; adverb type = manner",0.230612702075438,0.381835292159851,-0.517770718584199,0.978996122735075,0.603958583217852,0.545871178311447,1,"Holm-adjusted p >= .05","Negation-position contrast: second clause - first clause
+continuation type = match; adverb type = manner"
+"Negation-position contrast","second_clause - first_clause","continuation type = mismatch; adverb type = manner",0.808406990796798,0.392608283279032,0.0389088955377976,1.5779050860558,2.05906758778763,0.0394877642819706,0.157951057127882,"Holm-adjusted p >= .05","Negation-position contrast: second clause - first clause
+continuation type = mismatch; adverb type = manner"
+"Negation-position contrast","second_clause - first_clause","continuation type = match; adverb type = ideophone",-0.0558186747312549,0.363283676109805,-0.767841596077786,0.656204246615276,-0.15365037958486,0.877885411398324,1,"Holm-adjusted p >= .05","Negation-position contrast: second clause - first clause
+continuation type = match; adverb type = ideophone"
+"Negation-position contrast","second_clause - first_clause","continuation type = mismatch; adverb type = ideophone",0.799417481701034,0.389615423093367,0.0357852846166999,1.56304967878537,2.05181169511727,0.0401879662796571,0.157951057127882,"Holm-adjusted p >= .05","Negation-position contrast: second clause - first clause
+continuation type = mismatch; adverb type = ideophone"
