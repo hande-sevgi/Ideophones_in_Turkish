@@ -1,5 +1,5 @@
 # =============================================================================
-# CHAPTER4_TURKISH_EXP2_PRIMARY.R
+# 05_analyze_experiment_2.R
 #
 # Purpose:
 #   Reproduce the primary Experiment II analysis reported in Chapter 4.
