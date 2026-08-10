@@ -117,7 +117,7 @@ The extended analyses supplement the primary comparisons by directly testing whe
 The repository is being organized using a reproducible computational social science workflow:
 
 ```text
-ideophones_in_Turkish/
+Ideophones_in_Turkish/
 ├── code/
 │   └── legacy/
 │   │   └── Sevgi_Chapter4.R
