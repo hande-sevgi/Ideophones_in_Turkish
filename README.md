@@ -118,6 +118,7 @@ The repository is being organized using a reproducible computational social scie
 
 ```text
 Ideophones_in_Turkish/
+├── README.md
 ├── code/
 │   └── legacy/
 │   │   └── Sevgi_Chapter4.R
@@ -146,8 +147,7 @@ Ideophones_in_Turkish/
 │   ├── figures/
 │   ├── tables/
 │   └── models/
-├── .gitignore
-└──  README.md
+└──  .gitignore
 ```
 
 Empty directories may not appear on GitHub until they contain a file. Directory-level `README.md` files may therefore be used to document their intended contents.
