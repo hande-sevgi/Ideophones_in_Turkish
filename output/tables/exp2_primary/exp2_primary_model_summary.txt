@@ -1,0 +1,33 @@
+Cumulative Link Mixed Model fitted with the Laplace approximation
+
+formula: rating_ordered ~ continuation_type * adverb_type * negation_position +  
+    (1 | participant_id) + (1 | scenario)
+data:    exp2_primary
+
+ link  threshold nobs logLik  AIC     niter      max.grad cond.H 
+ logit flexible  392  -527.15 1080.29 1529(6106) 9.99e-04 8.7e+01
+
+Random effects:
+ Groups         Name        Variance Std.Dev.
+ participant_id (Intercept) 1.4445   1.2019  
+ scenario       (Intercept) 0.1097   0.3312  
+Number of groups:  participant_id 49,  scenario 6 
+
+Coefficients:
+                                                   Estimate Std. Error z value Pr(>|z|)    
+continuation_type1                                 -0.30054    0.09954  -3.019 0.002534 ** 
+adverb_type1                                        0.26051    0.09914   2.628 0.008595 ** 
+negation_position1                                  0.35539    0.10062   3.532 0.000413 ***
+continuation_type1:adverb_type1                    -0.05791    0.09821  -0.590 0.555391    
+continuation_type1:negation_position1              -0.03962    0.09834  -0.403 0.687051    
+adverb_type1:negation_position1                     0.11059    0.09847   1.123 0.261387    
+continuation_type1:adverb_type1:negation_position1  0.08846    0.09807   0.902 0.367057    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Threshold coefficients:
+    Estimate Std. Error z value
+1|2  -2.4499     0.2851  -8.593
+2|3  -1.3269     0.2596  -5.112
+3|4  -0.8916     0.2543  -3.506
+4|5   0.5385     0.2502   2.152
