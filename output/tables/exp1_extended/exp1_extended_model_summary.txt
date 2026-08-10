@@ -1,6 +1,7 @@
 Cumulative Link Mixed Model fitted with the Laplace approximation
 
-formula: rating_ordered ~ continuation_type * adverb_type * negation_position +      (1 | participant_id) + (1 | scenario)
+formula: rating_ordered ~ continuation_type * adverb_type * negation_position +  
+    (1 | participant_id) + (1 | scenario)
 data:    exp1_extended
 
  link  threshold nobs logLik  AIC     niter      max.grad cond.H 
