@@ -23,7 +23,8 @@
 required_packages <- c(
   "ordinal",
   "emmeans",
-  "ggplot2"
+  "ggplot2",
+  "scales"
 )
 
 missing_packages <- required_packages[
@@ -781,36 +782,148 @@ ggplot2::ggsave(
 )
 
 
-# ---- Model-prediction figure -------------------------------------------------
+# ---- Ordinal predicted-category probabilities -------------------------------
 
-prediction_plot_data <- model_predictions
+# A line joining categorical conditions can imply continuity that is not
+# present in the design. The primary model figure therefore displays the
+# predicted probability of every ordinal response category (1--5).
 
-prediction_plot_data$continuation_type <- factor(
-  prediction_plot_data$continuation_type,
-  levels = c(
-    "match",
-    "mismatch"
-  ),
-  labels = c(
-    "Match",
-    "Mismatch"
+identify_emmeans_column <- function(
+  data,
+  candidates,
+  description
+) {
+  result <- intersect(
+    candidates,
+    names(data)
+  )[1]
+
+  if (is.na(result)) {
+    stop(
+      paste0(
+        "Could not identify the ",
+        description,
+        " column returned by emmeans. Available columns: ",
+        paste(names(data), collapse = ", ")
+      ),
+      call. = FALSE
+    )
+  }
+
+  result
+}
+
+probability_grid <- emmeans::emmeans(
+  primary_model,
+  specs = ~
+    rating_ordered |
+    continuation_type *
+    adverb_type *
+    negation_position,
+  mode = "prob"
+)
+
+probability_raw <- as.data.frame(
+  summary(
+    probability_grid,
+    infer = c(TRUE, FALSE),
+    level = 0.95
   )
 )
 
-prediction_plot_data$adverb_type <- factor(
-  prediction_plot_data$adverb_type,
-  levels = c(
-    "temporal",
-    "manner"
-  ),
-  labels = c(
-    "Temporal",
-    "Manner"
-  )
+probability_column <- identify_emmeans_column(
+  probability_raw,
+  c("prob", "response", "emmean"),
+  "predicted probability"
 )
 
-prediction_plot_data$negation_position <- factor(
-  prediction_plot_data$negation_position,
+probability_lower_column <- identify_emmeans_column(
+  probability_raw,
+  c("asymp.LCL", "lower.CL", "LCL"),
+  "lower confidence limit"
+)
+
+probability_upper_column <- identify_emmeans_column(
+  probability_raw,
+  c("asymp.UCL", "upper.CL", "UCL"),
+  "upper confidence limit"
+)
+
+category_probabilities <- data.frame(
+  rating = as.character(
+    probability_raw$rating_ordered
+  ),
+  continuation_type =
+    probability_raw$continuation_type,
+  adverb_type =
+    probability_raw$adverb_type,
+  negation_position =
+    probability_raw$negation_position,
+  predicted_probability =
+    probability_raw[[probability_column]],
+  std_error = probability_raw$SE,
+  lower_95 =
+    probability_raw[[probability_lower_column]],
+  upper_95 =
+    probability_raw[[probability_upper_column]],
+  stringsAsFactors = FALSE
+)
+
+probability_sums <- stats::aggregate(
+  predicted_probability ~
+    continuation_type +
+    adverb_type +
+    negation_position,
+  data = category_probabilities,
+  FUN = sum
+)
+
+if (
+  any(
+    abs(
+      probability_sums$predicted_probability - 1
+    ) > 1e-5
+  )
+) {
+  stop(
+    "Predicted rating-category probabilities do not sum to one.",
+    call. = FALSE
+  )
+}
+
+write.csv(
+  category_probabilities,
+  file.path(
+    table_directory,
+    "exp1_primary_predicted_category_probabilities.csv"
+  ),
+  row.names = FALSE
+)
+
+
+# ---- Ordinal probability figure ---------------------------------------------
+
+probability_plot_data <- category_probabilities
+
+probability_plot_data$rating <- factor(
+  probability_plot_data$rating,
+  levels = as.character(1:5)
+)
+
+probability_plot_data$continuation_type <- factor(
+  probability_plot_data$continuation_type,
+  levels = c("match", "mismatch"),
+  labels = c("Match", "Mismatch")
+)
+
+probability_plot_data$adverb_type <- factor(
+  probability_plot_data$adverb_type,
+  levels = c("temporal", "manner"),
+  labels = c("Temporal", "Manner")
+)
+
+probability_plot_data$negation_position <- factor(
+  probability_plot_data$negation_position,
   levels = c(
     "second_clause",
     "first_clause"
@@ -821,50 +934,47 @@ prediction_plot_data$negation_position <- factor(
   )
 )
 
-prediction_plot <-
-  ggplot2::ggplot(
-    prediction_plot_data,
-    ggplot2::aes(
-      x = continuation_type,
-      y = predicted_rating,
-      group = adverb_type,
-      color = adverb_type
-    )
+probability_plot <- ggplot2::ggplot(
+  probability_plot_data,
+  ggplot2::aes(
+    x = continuation_type,
+    y = predicted_probability,
+    fill = rating
+  )
+) +
+  ggplot2::geom_col(
+    width = 0.72,
+    color = "white",
+    linewidth = 0.25
   ) +
-  ggplot2::geom_line(
-    linewidth = 0.8
+  ggplot2::facet_grid(
+    negation_position ~ adverb_type
   ) +
-  ggplot2::geom_point(
-    size = 3
-  ) +
-  ggplot2::geom_errorbar(
-    ggplot2::aes(
-      ymin = lower_95,
-      ymax = upper_95
+  ggplot2::scale_y_continuous(
+    limits = c(0, 1),
+    labels = scales::percent_format(
+      accuracy = 1
     ),
-    width = 0.08,
-    linewidth = 0.6
+    expand = c(0, 0)
   ) +
-  ggplot2::facet_wrap(
-    ~ negation_position
-  ) +
-  ggplot2::scale_color_manual(
+  ggplot2::scale_fill_manual(
     values = c(
-      "Temporal" = "#E76F51",
-      "Manner" = "#2A9D8F"
-    )
-  ) +
-  ggplot2::coord_cartesian(
-    ylim = c(1, 5)
+      "1" = "#B84D6A",
+      "2" = "#D4977C",
+      "3" = "#D9C8A9",
+      "4" = "#91B39A",
+      "5" = "#16857F"
+    ),
+    drop = FALSE
   ) +
   ggplot2::labs(
     title =
-      "Experiment I: cumulative-link model predictions",
+      "Experiment I: model-predicted rating probabilities",
     subtitle =
-      "Expected ratings with 95% confidence intervals",
+      "Primary cumulative-link mixed model",
     x = "Continuation type",
-    y = "Model-predicted rating",
-    color = "Adverb type"
+    y = "Predicted probability",
+    fill = "Rating"
   ) +
   ggplot2::theme_minimal(
     base_size = 13
@@ -872,17 +982,266 @@ prediction_plot <-
   ggplot2::theme(
     legend.position = "top",
     panel.grid.minor =
+      ggplot2::element_blank(),
+    panel.grid.major.x =
+      ggplot2::element_blank(),
+    strip.text =
+      ggplot2::element_text(face = "bold")
+  )
+
+# This overwrites the former line plot with the ordinal probability plot.
+ggplot2::ggsave(
+  filename = file.path(
+    figure_directory,
+    "exp1_primary_model_predictions.png"
+  ),
+  plot = probability_plot,
+  width = 10,
+  height = 7,
+  dpi = 300
+)
+
+
+# ---- Conditional model contrasts --------------------------------------------
+
+# Conditional comparisons are estimated because the fitted model contains
+# interactions. The confidence intervals are unadjusted 95% intervals.
+# Holm correction is applied to the p-values within each contrast family.
+
+create_contrast_family <- function(
+  focal_predictor,
+  conditioning_predictors,
+  effect_label
+) {
+  specifications <- stats::as.formula(
+    paste0(
+      "~ ",
+      focal_predictor,
+      " | ",
+      paste(
+        conditioning_predictors,
+        collapse = " * "
+      )
+    )
+  )
+
+  marginal_means <- emmeans::emmeans(
+    primary_model,
+    specs = specifications,
+    mode = "latent"
+  )
+
+  contrast_result <- emmeans::contrast(
+    marginal_means,
+    method = "pairwise",
+    adjust = "none"
+  )
+
+  contrast_raw <- as.data.frame(
+    summary(
+      contrast_result,
+      infer = c(TRUE, TRUE),
+      level = 0.95
+    )
+  )
+
+  lower_column <- identify_emmeans_column(
+    contrast_raw,
+    c("asymp.LCL", "lower.CL", "LCL"),
+    "lower confidence limit"
+  )
+
+  upper_column <- identify_emmeans_column(
+    contrast_raw,
+    c("asymp.UCL", "upper.CL", "UCL"),
+    "upper confidence limit"
+  )
+
+  statistic_column <- identify_emmeans_column(
+    contrast_raw,
+    c("z.ratio", "t.ratio"),
+    "test statistic"
+  )
+
+  context <- apply(
+    contrast_raw[
+      ,
+      conditioning_predictors,
+      drop = FALSE
+    ],
+    1,
+    function(row) {
+      paste(
+        paste0(
+          gsub(
+            "_",
+            " ",
+            conditioning_predictors
+          ),
+          " = ",
+          gsub("_", " ", row)
+        ),
+        collapse = "; "
+      )
+    }
+  )
+
+  output <- data.frame(
+    effect = effect_label,
+    contrast = contrast_raw$contrast,
+    context = context,
+    estimate = contrast_raw$estimate,
+    std_error = contrast_raw$SE,
+    lower_95 = contrast_raw[[lower_column]],
+    upper_95 = contrast_raw[[upper_column]],
+    statistic = contrast_raw[[statistic_column]],
+    p_value = contrast_raw$p.value,
+    stringsAsFactors = FALSE
+  )
+
+  output$p_value_holm <- stats::p.adjust(
+    output$p_value,
+    method = "holm"
+  )
+
+  output
+}
+
+continuation_contrasts <- create_contrast_family(
+  focal_predictor = "continuation_type",
+  conditioning_predictors = c(
+    "adverb_type",
+    "negation_position"
+  ),
+  effect_label = "Continuation contrast"
+)
+
+adverb_contrasts <- create_contrast_family(
+  focal_predictor = "adverb_type",
+  conditioning_predictors = c(
+    "continuation_type",
+    "negation_position"
+  ),
+  effect_label = "Adverb-type contrast"
+)
+
+negation_contrasts <- create_contrast_family(
+  focal_predictor = "negation_position",
+  conditioning_predictors = c(
+    "continuation_type",
+    "adverb_type"
+  ),
+  effect_label = "Negation-position contrast"
+)
+
+conditional_contrasts <- rbind(
+  continuation_contrasts,
+  adverb_contrasts,
+  negation_contrasts
+)
+
+conditional_contrasts$significance <- ifelse(
+  conditional_contrasts$p_value_holm < 0.05,
+  "Holm-adjusted p < .05",
+  "Holm-adjusted p >= .05"
+)
+
+conditional_contrasts$display_label <- paste0(
+  conditional_contrasts$effect,
+  ": ",
+  gsub(
+    "_",
+    " ",
+    conditional_contrasts$contrast
+  ),
+  "\n",
+  conditional_contrasts$context
+)
+
+write.csv(
+  conditional_contrasts,
+  file.path(
+    table_directory,
+    "exp1_primary_conditional_contrasts.csv"
+  ),
+  row.names = FALSE
+)
+
+
+# ---- Conditional-contrast figure --------------------------------------------
+
+conditional_contrasts$display_label <- factor(
+  conditional_contrasts$display_label,
+  levels = rev(
+    unique(
+      conditional_contrasts$display_label
+    )
+  )
+)
+
+contrast_plot <- ggplot2::ggplot(
+  conditional_contrasts,
+  ggplot2::aes(
+    x = display_label,
+    y = estimate,
+    ymin = lower_95,
+    ymax = upper_95,
+    color = significance
+  )
+) +
+  ggplot2::geom_hline(
+    yintercept = 0,
+    color = "grey45",
+    linetype = "dashed"
+  ) +
+  ggplot2::geom_errorbar(
+    width = 0.18,
+    linewidth = 0.65
+  ) +
+  ggplot2::geom_point(
+    size = 2.8
+  ) +
+  ggplot2::coord_flip() +
+  ggplot2::scale_color_manual(
+    values = c(
+      "Holm-adjusted p < .05" =
+        "#007C78",
+      "Holm-adjusted p >= .05" =
+        "#777777"
+    )
+  ) +
+  ggplot2::labs(
+    title =
+      "Experiment I: conditional model contrasts",
+    subtitle = paste(
+      "Estimates and unadjusted 95% confidence intervals",
+      "on the latent log-odds scale;",
+      "colour represents Holm-adjusted p-values"
+    ),
+    x = NULL,
+    y =
+      "Estimated contrast (latent log odds)",
+    color = NULL
+  ) +
+  ggplot2::theme_minimal(
+    base_size = 11
+  ) +
+  ggplot2::theme(
+    legend.position = "top",
+    panel.grid.minor =
+      ggplot2::element_blank(),
+    panel.grid.major.y =
       ggplot2::element_blank()
   )
 
 ggplot2::ggsave(
   filename = file.path(
     figure_directory,
-    "exp1_primary_model_predictions.png"
+    "exp1_primary_conditional_contrasts.png"
   ),
-  plot = prediction_plot,
-  width = 10,
-  height = 6,
+  plot = contrast_plot,
+  width = 12,
+  height = 10,
   dpi = 300
 )
 
