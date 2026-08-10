@@ -1,84 +1,94 @@
-# ============================================================
-# Experiment 2 analysis: Written English
-# Manner before path
-# ============================================================
+# =============================================================================
+# CHAPTER4_TURKISH_EXP2_PRIMARY.R
 #
-# Run from the repository root:
+# Purpose:
+#   Reproduce the primary Experiment II analysis reported in Chapter 4.
 #
-# source("code/scripts/05_analyze_experiment_2.R")
-# ============================================================
+# Analysis:
+#   - Manner and temporal adverbials only
+#   - Experimental trials only
+#   - 2 × 2 × 2 design:
+#       continuation type × adverb type × negation position
+#   - Five-point ordinal response
+#   - Sum-coded predictors
+#   - Random intercepts for participant and scenario
+#
+# The later 06_exp2_extended_analysis.R script will extend this analysis
+# by including ideophones as the third adverbial-type level.
+# =============================================================================
 
 
-# ------------------------------------------------------------
-# 1. Required packages
-# ------------------------------------------------------------
+# ---- Required packages -------------------------------------------------------
 
 required_packages <- c(
-  "glmmTMB",
+  "ordinal",
   "emmeans",
-  "ggplot2",
-  "DHARMa"
+  "ggplot2"
 )
 
 missing_packages <- required_packages[
   !vapply(
     required_packages,
     requireNamespace,
-    logical(1),
-    quietly = TRUE
+    quietly = TRUE,
+    FUN.VALUE = logical(1)
   )
 ]
 
 if (length(missing_packages) > 0L) {
   stop(
-    "Install the following packages first:\n\n",
-    paste(
+    paste0(
+      "Install the following packages first:\n\n",
       "install.packages(c(",
       paste(
         paste0('"', missing_packages, '"'),
         collapse = ", "
       ),
       "))"
-    )
+    ),
+    call. = FALSE
   )
 }
 
 
-# ------------------------------------------------------------
-# 2. File paths
-# ------------------------------------------------------------
+# ---- Reproducibility ---------------------------------------------------------
+
+set.seed(20260810)
+
+
+# ---- File locations ----------------------------------------------------------
 
 input_file <- file.path(
   "data",
   "processed",
-  "exp2_written_manner_path.csv"
+  "exp2_contrastive_noncanonical.csv"
 )
 
 figure_directory <- file.path(
   "output",
   "figures",
-  "exp2"
+  "exp2_primary"
 )
 
 table_directory <- file.path(
   "output",
   "tables",
-  "exp2"
+  "exp2_primary"
 )
 
 model_directory <- file.path(
   "output",
   "models",
-  "exp2"
+  "exp2_primary"
 )
 
-directories <- c(
-  figure_directory,
-  table_directory,
-  model_directory
-)
-
-for (directory in directories) {
+for (
+  directory in c(
+    figure_directory,
+    table_directory,
+    model_directory
+  )
+) {
   if (!dir.exists(directory)) {
     dir.create(
       directory,
@@ -88,809 +98,805 @@ for (directory in directories) {
 }
 
 
-# ------------------------------------------------------------
-# 3. Read and validate processed data
-# ------------------------------------------------------------
+# ---- Read data ---------------------------------------------------------------
 
 if (!file.exists(input_file)) {
   stop(
-    "Cannot find ",
-    input_file,
-    ". Run 02_prepare_processed_data.R first."
+    paste0(
+      "Processed Experiment II data not found:\n",
+      input_file,
+      "\n\nRun 02_prepare_processed_data.R first."
+    ),
+    call. = FALSE
   )
 }
 
-experiment_data <- read.csv(
+exp2_all <- read.csv(
   input_file,
   stringsAsFactors = FALSE,
   na.strings = c("", "NA")
 )
 
+
+# ---- Validate processed data -------------------------------------------------
+
 required_columns <- c(
-  "study_id",
   "participant_id",
   "trial",
   "rating",
-  "polarity",
-  "sentence_type",
-  "event_type",
   "scenario",
-  "modifier_order",
-  "included",
-  "exclusion_reason"
+  "trial_type",
+  "negation_position",
+  "adverb_type",
+  "continuation_type",
+  "word_order",
+  "included"
 )
 
 missing_columns <- setdiff(
   required_columns,
-  names(experiment_data)
+  names(exp2_all)
 )
 
 if (length(missing_columns) > 0L) {
   stop(
-    "Missing required columns: ",
-    paste(missing_columns, collapse = ", ")
+    paste0(
+      "Experiment II processed data are missing: ",
+      paste(missing_columns, collapse = ", ")
+    ),
+    call. = FALSE
   )
 }
 
-if ("Response_ID" %in% names(experiment_data)) {
-  stop(
-    "Processed data unexpectedly contain Response_ID."
-  )
-}
 
-if (nrow(experiment_data) != 1440L) {
-  stop(
-    "Expected 1,440 processed rows but found ",
-    nrow(experiment_data),
-    "."
-  )
-}
+# ---- Select the primary analysis --------------------------------------------
 
-if (!identical(unique(experiment_data$study_id), "exp2")) {
-  stop("The processed file does not contain study_id = 'exp2'.")
-}
-
-if (!is.logical(experiment_data$included)) {
-  experiment_data$included <-
-    tolower(
-      as.character(experiment_data$included)
-    ) == "true"
-}
-
-included_data <- experiment_data[
-  experiment_data$included,
+exp2_primary <- exp2_all[
+  exp2_all$included == TRUE &
+    exp2_all$trial_type == "experimental" &
+    exp2_all$adverb_type %in%
+      c("temporal", "manner"),
+  ,
+  drop = FALSE
 ]
 
-if (nrow(included_data) != 1368L) {
-  stop(
-    "Expected 1,368 included rows but found ",
-    nrow(included_data),
-    "."
-  )
-}
+rownames(exp2_primary) <- NULL
 
-if (any(
-  included_data$modifier_order != "manner_before_path"
-)) {
-  stop(
-    "Unexpected modifier order detected in Experiment 2."
-  )
-}
-
-included_participants <- length(
-  unique(included_data$participant_id)
+observed_participants <- length(
+  unique(exp2_primary$participant_id)
 )
 
-excluded_participants <- length(
-  unique(
-    experiment_data$participant_id[
-      !experiment_data$included
-    ]
-  )
+observed_observations <- nrow(
+  exp2_primary
 )
 
-if (included_participants != 114L) {
-  stop(
-    "Expected 114 included participants but found ",
-    included_participants,
-    "."
-  )
-}
-
-if (excluded_participants != 6L) {
-  stop(
-    "Expected 6 excluded participants but found ",
-    excluded_participants,
-    "."
-  )
-}
-
-if (any(included_data$rating < 0 |
-        included_data$rating > 100)) {
-  stop("Ratings outside the 0–100 range detected.")
-}
-
-message(
-  "Experiment 2 data validated: ",
-  included_participants,
-  " included and ",
-  excluded_participants,
-  " excluded participants."
+observed_scenarios <- length(
+  unique(exp2_primary$scenario)
 )
 
+observed_word_orders <- unique(
+  exp2_primary$word_order
+)
 
-# ------------------------------------------------------------
-# 4. Prepare variables
-# ------------------------------------------------------------
+if (
+  length(observed_word_orders) != 1L ||
+    observed_word_orders != "noncanonical"
+) {
+  stop(
+    paste0(
+      "Experiment II primary data must contain only ",
+      "noncanonical word order."
+    ),
+    call. = FALSE
+  )
+}
 
-included_data$polarity <- factor(
-  included_data$polarity,
+if (observed_participants != 49L) {
+  stop(
+    paste0(
+      "Expected 49 participants but found ",
+      observed_participants,
+      "."
+    ),
+    call. = FALSE
+  )
+}
+
+# The archived Experiment II allocation contains
+# 196 temporal and 196 manner observations.
+if (observed_observations != 392L) {
+  stop(
+    paste0(
+      "Expected 392 primary-analysis observations ",
+      "but found ",
+      observed_observations,
+      "."
+    ),
+    call. = FALSE
+  )
+}
+
+if (observed_scenarios != 6L) {
+  stop(
+    paste0(
+      "Expected 6 scenarios but found ",
+      observed_scenarios,
+      "."
+    ),
+    call. = FALSE
+  )
+}
+
+if (
+  any(is.na(exp2_primary$rating)) ||
+    any(!exp2_primary$rating %in% 1:5)
+) {
+  stop(
+    "Experiment II ratings must be integers from 1 to 5.",
+    call. = FALSE
+  )
+}
+
+
+# ---- Factor coding -----------------------------------------------------------
+
+# Ratings are ordered from least natural (1)
+# to most natural (5).
+exp2_primary$rating_ordered <- ordered(
+  exp2_primary$rating,
+  levels = 1:5
+)
+
+exp2_primary$participant_id <- factor(
+  exp2_primary$participant_id
+)
+
+exp2_primary$scenario <- factor(
+  exp2_primary$scenario,
+  levels = as.character(1:6)
+)
+
+exp2_primary$continuation_type <- factor(
+  exp2_primary$continuation_type,
   levels = c(
-    "affirmative",
-    "negative"
+    "match",
+    "mismatch"
   )
 )
 
-included_data$sentence_type <- factor(
-  included_data$sentence_type,
+exp2_primary$adverb_type <- factor(
+  exp2_primary$adverb_type,
   levels = c(
-    "conflated",
-    "path",
+    "temporal",
     "manner"
   )
 )
 
-included_data$event_type <- factor(
-  included_data$event_type,
+exp2_primary$negation_position <- factor(
+  exp2_primary$negation_position,
   levels = c(
-    "conflated",
-    "path",
-    "manner",
-    "no_motion"
+    "second_clause",
+    "first_clause"
   )
-)
-
-included_data$scenario <- factor(
-  included_data$scenario,
-  levels = c(
-    "leaf",
-    "car",
-    "plank",
-    "chair",
-    "paper"
-  )
-)
-
-included_data$participant_id <- factor(
-  included_data$participant_id
 )
 
 if (
-  anyNA(included_data$polarity) ||
-    anyNA(included_data$sentence_type) ||
-    anyNA(included_data$event_type) ||
-    anyNA(included_data$scenario)
+  anyNA(exp2_primary$continuation_type) ||
+    anyNA(exp2_primary$adverb_type) ||
+    anyNA(exp2_primary$negation_position) ||
+    anyNA(exp2_primary$scenario)
 ) {
-  stop("Unexpected factor values were detected.")
+  stop(
+    "Unexpected or missing factor levels detected.",
+    call. = FALSE
+  )
 }
 
-epsilon <- 1e-6
+# Sum coding reproduces the dissertation analysis.
+contrasts(
+  exp2_primary$continuation_type
+) <- contr.sum(2)
 
-included_data$rating_scaled <-
-  (included_data$rating / 100) *
-  (1 - 2 * epsilon) +
-  epsilon
+contrasts(
+  exp2_primary$adverb_type
+) <- contr.sum(2)
+
+contrasts(
+  exp2_primary$negation_position
+) <- contr.sum(2)
 
 
-# ------------------------------------------------------------
-# 5. Sample-flow table
-# ------------------------------------------------------------
+# ---- Cell counts -------------------------------------------------------------
 
-sample_flow <- data.frame(
-  stage = c(
-    "Input sample",
-    "Excluded",
-    "Included in analysis"
-  ),
-  participants = c(
-    length(unique(experiment_data$participant_id)),
-    excluded_participants,
-    included_participants
+cell_counts <- as.data.frame(
+  table(
+    continuation_type =
+      exp2_primary$continuation_type,
+    adverb_type =
+      exp2_primary$adverb_type,
+    negation_position =
+      exp2_primary$negation_position
   ),
   stringsAsFactors = FALSE
 )
 
+names(cell_counts)[
+  names(cell_counts) == "Freq"
+] <- "observations"
+
 write.csv(
-  sample_flow,
+  cell_counts,
   file.path(
     table_directory,
-    "exp2_sample_flow.csv"
+    "exp2_primary_cell_counts.csv"
   ),
   row.names = FALSE
 )
 
 
-# ------------------------------------------------------------
-# 6. Descriptive statistics
-# ------------------------------------------------------------
+# ---- Descriptive summary -----------------------------------------------------
 
-group_variables <- c(
-  "polarity",
-  "sentence_type",
-  "event_type"
+group_variables <- interaction(
+  exp2_primary$continuation_type,
+  exp2_primary$adverb_type,
+  exp2_primary$negation_position,
+  drop = TRUE,
+  lex.order = TRUE
 )
 
-mean_table <- aggregate(
-  included_data["rating"],
-  included_data[group_variables],
-  mean,
-  na.rm = TRUE
-)
+descriptive_summary <- do.call(
+  rbind,
+  lapply(
+    split(
+      exp2_primary,
+      group_variables
+    ),
+    function(group_data) {
 
-names(mean_table)[
-  names(mean_table) == "rating"
-] <- "mean_rating"
-
-sd_table <- aggregate(
-  included_data["rating"],
-  included_data[group_variables],
-  sd,
-  na.rm = TRUE
-)
-
-names(sd_table)[
-  names(sd_table) == "rating"
-] <- "sd_rating"
-
-count_table <- aggregate(
-  included_data["rating"],
-  included_data[group_variables],
-  length
-)
-
-names(count_table)[
-  names(count_table) == "rating"
-] <- "observations"
-
-descriptive_summary <- Reduce(
-  function(left, right) {
-    merge(
-      left,
-      right,
-      by = group_variables,
-      all = TRUE
-    )
-  },
-  list(
-    mean_table,
-    sd_table,
-    count_table
+      data.frame(
+        continuation_type =
+          as.character(
+            group_data$continuation_type[1]
+          ),
+        adverb_type =
+          as.character(
+            group_data$adverb_type[1]
+          ),
+        negation_position =
+          as.character(
+            group_data$negation_position[1]
+          ),
+        observations =
+          nrow(group_data),
+        participants =
+          length(
+            unique(
+              group_data$participant_id
+            )
+          ),
+        mean_rating =
+          mean(group_data$rating),
+        sd_rating =
+          stats::sd(group_data$rating),
+        se_rating =
+          stats::sd(group_data$rating) /
+          sqrt(nrow(group_data)),
+        median_rating =
+          stats::median(group_data$rating),
+        stringsAsFactors = FALSE
+      )
+    }
   )
 )
 
-descriptive_summary$standard_error <-
-  descriptive_summary$sd_rating /
-  sqrt(descriptive_summary$observations)
-
-descriptive_summary$ci_95 <-
-  1.96 *
-  descriptive_summary$standard_error
-
-descriptive_summary <- descriptive_summary[
-  order(
-    descriptive_summary$polarity,
-    descriptive_summary$sentence_type,
-    descriptive_summary$event_type
-  ),
-]
+rownames(descriptive_summary) <- NULL
 
 write.csv(
   descriptive_summary,
   file.path(
     table_directory,
-    "exp2_descriptive_summary.csv"
+    "exp2_primary_descriptive_summary.csv"
   ),
   row.names = FALSE
 )
 
 
-# ------------------------------------------------------------
-# 7. Raw-rating figure
-# ------------------------------------------------------------
+# ---- Fit cumulative-link mixed model ----------------------------------------
 
-raw_plot <- ggplot2::ggplot(
-  included_data,
-  ggplot2::aes(
-    x = event_type,
-    y = rating,
-    color = sentence_type,
-    fill = sentence_type
-  )
-) +
-  ggplot2::geom_boxplot(
-    alpha = 0.35,
-    outlier.alpha = 0.15,
-    position = ggplot2::position_dodge(
-      width = 0.75
-    )
-  ) +
-  ggplot2::facet_wrap(
-    ~ polarity
-  ) +
-  ggplot2::scale_y_continuous(
-    limits = c(0, 100),
-    breaks = seq(0, 100, 20)
-  ) +
-  ggplot2::labs(
-    x = "Event type",
-    y = "Rating",
-    color = "Modification type",
-    fill = "Modification type"
-  ) +
-  ggplot2::theme_minimal(
-    base_size = 12
-  ) +
-  ggplot2::theme(
-    legend.position = "top",
-    panel.grid.minor = ggplot2::element_blank()
-  )
+primary_formula <- (
+  rating_ordered ~
+    continuation_type *
+    adverb_type *
+    negation_position +
+    (1 | participant_id) +
+    (1 | scenario)
+)
 
-ggplot2::ggsave(
-  filename = file.path(
-    figure_directory,
-    "exp2_raw_ratings.png"
-  ),
-  plot = raw_plot,
-  width = 10,
-  height = 6,
-  dpi = 300
+primary_model <- ordinal::clmm(
+  formula = primary_formula,
+  data = exp2_primary,
+  link = "logit",
+  Hess = TRUE,
+  nAGQ = 1,
+  model = TRUE
 )
 
 
-# ------------------------------------------------------------
-# 8. Model helper functions
-# ------------------------------------------------------------
+# ---- Model summary -----------------------------------------------------------
 
-save_fixed_effects <- function(
-  model,
-  output_path
-) {
+model_summary <- summary(
+  primary_model
+)
 
-  coefficient_matrix <-
-    summary(model)$coefficients$cond
-
-  coefficient_table <- data.frame(
-    term = rownames(coefficient_matrix),
-    coefficient_matrix,
-    row.names = NULL,
-    check.names = FALSE
+capture.output(
+  model_summary,
+  file = file.path(
+    table_directory,
+    "exp2_primary_model_summary.txt"
   )
+)
 
-  write.csv(
-    coefficient_table,
-    output_path,
-    row.names = FALSE
+
+# ---- Fixed effects -----------------------------------------------------------
+
+coefficient_table <- as.data.frame(
+  stats::coef(model_summary)
+)
+
+coefficient_table$term <- rownames(
+  coefficient_table
+)
+
+fixed_effect_names <- names(
+  primary_model$beta
+)
+
+fixed_effect_rows <- match(
+  fixed_effect_names,
+  coefficient_table$term
+)
+
+if (anyNA(fixed_effect_rows)) {
+  stop(
+    "Could not match all fixed effects in the model summary.",
+    call. = FALSE
   )
 }
 
+fixed_effects <- data.frame(
+  term = fixed_effect_names,
+  estimate =
+    coefficient_table[
+      fixed_effect_rows,
+      1
+    ],
+  std_error =
+    coefficient_table[
+      fixed_effect_rows,
+      2
+    ],
+  z_value =
+    coefficient_table[
+      fixed_effect_rows,
+      3
+    ],
+  p_value =
+    coefficient_table[
+      fixed_effect_rows,
+      4
+    ],
+  stringsAsFactors = FALSE
+)
 
-save_sentence_contrasts <- function(
-  model,
-  output_path
-) {
+write.csv(
+  fixed_effects,
+  file.path(
+    table_directory,
+    "exp2_primary_fixed_effects.csv"
+  ),
+  row.names = FALSE
+)
 
-  estimated_means <- emmeans::emmeans(
-    model,
-    ~ sentence_type | event_type
+
+# ---- Random effects ----------------------------------------------------------
+
+variance_components <- ordinal::VarCorr(
+  primary_model
+)
+
+random_effects <- do.call(
+  rbind,
+  lapply(
+    names(variance_components),
+    function(group_name) {
+
+      variance_matrix <-
+        variance_components[[group_name]]
+
+      variance_value <- as.numeric(
+        variance_matrix[1, 1]
+      )
+
+      data.frame(
+        grouping_factor = group_name,
+        variance = variance_value,
+        standard_deviation =
+          sqrt(variance_value),
+        stringsAsFactors = FALSE
+      )
+    }
   )
+)
 
-  contrast_table <- as.data.frame(
-    summary(
-      pairs(
-        estimated_means,
-        adjust = "holm"
-      ),
-      infer = c(TRUE, TRUE)
+rownames(random_effects) <- NULL
+
+write.csv(
+  random_effects,
+  file.path(
+    table_directory,
+    "exp2_primary_random_effects.csv"
+  ),
+  row.names = FALSE
+)
+
+
+# ---- Model convergence checks ------------------------------------------------
+
+convergence_code <- if (
+  !is.null(
+    primary_model$optRes$convergence
+  )
+) {
+  as.character(
+    primary_model$optRes$convergence
+  )
+} else {
+  NA_character_
+}
+
+maximum_absolute_gradient <- if (
+  !is.null(primary_model$gradient)
+) {
+  max(
+    abs(primary_model$gradient)
+  )
+} else if (
+  !is.null(
+    primary_model$optRes$gradient
+  )
+) {
+  max(
+    abs(
+      primary_model$optRes$gradient
     )
   )
-
-  contrast_table$p_value_adjustment <- "Holm"
-  contrast_table$confidence_interval_adjustment <-
-    "Bonferroni"
-
-  write.csv(
-    contrast_table,
-    output_path,
-    row.names = FALSE
-  )
+} else {
+  NA_real_
 }
 
+positive_definite_hessian <- tryCatch(
+  {
+    hessian_values <- eigen(
+      (
+        primary_model$Hessian +
+          t(primary_model$Hessian)
+      ) / 2,
+      symmetric = TRUE,
+      only.values = TRUE
+    )$values
 
-extract_dharma_test <- function(
-  test_result,
-  test_name
-) {
+    all(hessian_values > 0)
+  },
+  error = function(error) {
+    NA
+  }
+)
 
-  statistic_value <- if (
-    length(test_result$statistic) > 0L
-  ) {
-    unname(test_result$statistic[[1]])
-  } else {
+hessian_condition_number <- tryCatch(
+  {
+    kappa(primary_model$Hessian)
+  },
+  error = function(error) {
     NA_real_
   }
-
-  data.frame(
-    test = test_name,
-    statistic = statistic_value,
-    p_value = test_result$p.value,
-    method = test_result$method,
-    stringsAsFactors = FALSE
-  )
-}
-
-
-fit_polarity_model <- function(
-  analysis_data,
-  polarity_value,
-  output_label
-) {
-
-  model_data <- analysis_data[
-    analysis_data$polarity == polarity_value &
-      analysis_data$event_type != "no_motion",
-  ]
-
-  model_data <- droplevels(
-    model_data
-  )
-
-  model_data$sentence_type <- factor(
-    model_data$sentence_type,
-    levels = c(
-      "conflated",
-      "path",
-      "manner"
-    )
-  )
-
-  model_data$event_type <- factor(
-    model_data$event_type,
-    levels = c(
-      "conflated",
-      "path",
-      "manner"
-    )
-  )
-
-  contrasts(
-    model_data$sentence_type
-  ) <- contr.treatment(
-    3,
-    base = 1
-  )
-
-  contrasts(
-    model_data$event_type
-  ) <- contr.treatment(
-    3,
-    base = 1
-  )
-
-  model <- glmmTMB::glmmTMB(
-    rating_scaled ~
-      sentence_type * event_type +
-      (1 | participant_id) +
-      (1 | scenario),
-    family = glmmTMB::beta_family(
-      link = "logit"
-    ),
-    data = model_data
-  )
-
-  if (!isTRUE(model$sdr$pdHess)) {
-    warning(
-      output_label,
-      " model has a non-positive-definite Hessian."
-    )
-  }
-
-  saveRDS(
-    model,
-    file.path(
-      model_directory,
-      paste0(
-        "exp2_",
-        output_label,
-        "_model.rds"
-      )
-    )
-  )
-
-  save_fixed_effects(
-    model,
-    file.path(
-      table_directory,
-      paste0(
-        "exp2_",
-        output_label,
-        "_fixed_effects.csv"
-      )
-    )
-  )
-
-  capture.output(
-    summary(model),
-    file = file.path(
-      table_directory,
-      paste0(
-        "exp2_",
-        output_label,
-        "_model_summary.txt"
-      )
-    )
-  )
-
-  save_sentence_contrasts(
-    model,
-    file.path(
-      table_directory,
-      paste0(
-        "exp2_",
-        output_label,
-        "_sentence_contrasts.csv"
-      )
-    )
-  )
-
-  estimated_means <- emmeans::emmeans(
-    model,
-    ~ sentence_type * event_type,
-    type = "response"
-  )
-
-  prediction_table <- as.data.frame(
-    summary(
-      estimated_means,
-      type = "response"
-    )
-  )
-
-  prediction_table$polarity <-
-    polarity_value
-
-  set.seed(123)
-
-  simulation <- DHARMa::simulateResiduals(
-    fittedModel = model,
-    n = 1000,
-    plot = FALSE
-  )
-
-  diagnostic_tests <- rbind(
-    extract_dharma_test(
-      DHARMa::testUniformity(
-        simulation,
-        plot = FALSE
-      ),
-      "uniformity"
-    ),
-    extract_dharma_test(
-      DHARMa::testDispersion(
-        simulation,
-        plot = FALSE
-      ),
-      "dispersion"
-    ),
-    extract_dharma_test(
-      DHARMa::testOutliers(
-        simulation,
-        plot = FALSE
-      ),
-      "outliers"
-    )
-  )
-
-  write.csv(
-    diagnostic_tests,
-    file.path(
-      table_directory,
-      paste0(
-        "exp2_",
-        output_label,
-        "_diagnostic_tests.csv"
-      )
-    ),
-    row.names = FALSE
-  )
-
-  grDevices::png(
-    filename = file.path(
-      figure_directory,
-      paste0(
-        "exp2_",
-        output_label,
-        "_diagnostics.png"
-      )
-    ),
-    width = 1800,
-    height = 1400,
-    res = 180
-  )
-
-  plot(simulation)
-
-  grDevices::dev.off()
-
-  list(
-    model = model,
-    predictions = prediction_table,
-    model_rows = nrow(model_data),
-    model_participants = length(
-      unique(model_data$participant_id)
-    )
-  )
-}
-
-
-# ------------------------------------------------------------
-# 9. Fit affirmative and negative models
-# ------------------------------------------------------------
-
-set.seed(123)
-
-affirmative_results <- fit_polarity_model(
-  analysis_data = included_data,
-  polarity_value = "affirmative",
-  output_label = "affirmative"
 )
 
-set.seed(123)
-
-negative_results <- fit_polarity_model(
-  analysis_data = included_data,
-  polarity_value = "negative",
-  output_label = "negative"
+model_diagnostics <- data.frame(
+  diagnostic = c(
+    "convergence_code",
+    "maximum_absolute_gradient",
+    "positive_definite_hessian",
+    "hessian_condition_number",
+    "log_likelihood",
+    "AIC",
+    "BIC"
+  ),
+  value = c(
+    convergence_code,
+    maximum_absolute_gradient,
+    positive_definite_hessian,
+    hessian_condition_number,
+    as.numeric(
+      stats::logLik(primary_model)
+    ),
+    stats::AIC(primary_model),
+    stats::BIC(primary_model)
+  ),
+  stringsAsFactors = FALSE
 )
 
-if (affirmative_results$model_rows != 517L) {
-  stop(
-    "Expected 517 affirmative motion-event observations but found ",
-    affirmative_results$model_rows,
-    "."
-  )
-}
-
-if (negative_results$model_rows != 509L) {
-  stop(
-    "Expected 509 negative motion-event observations but found ",
-    negative_results$model_rows,
-    "."
-  )
-}
-
-if (
-  affirmative_results$model_participants != 114L ||
-    negative_results$model_participants != 114L
-) {
-  stop(
-    "Each polarity model should contain all 114 included participants."
-  )
-}
-
-
-# ------------------------------------------------------------
-# 10. Save model predictions
-# ------------------------------------------------------------
-
-prediction_table <- rbind(
-  affirmative_results$predictions,
-  negative_results$predictions
+write.csv(
+  model_diagnostics,
+  file.path(
+    table_directory,
+    "exp2_primary_model_diagnostics.csv"
+  ),
+  row.names = FALSE
 )
 
-if (!"response" %in% names(prediction_table)) {
-  stop(
-    "Could not identify the model prediction column."
+
+# ---- Model-predicted mean ratings --------------------------------------------
+
+# For an ordinal model, mode = "mean.class"
+# converts category probabilities into an expected
+# rating on the original 1–5 scale.
+prediction_grid <- emmeans::emmeans(
+  primary_model,
+  specs = ~
+    continuation_type *
+    adverb_type *
+    negation_position,
+  mode = "mean.class"
+)
+
+predictions_raw <- as.data.frame(
+  summary(
+    prediction_grid,
+    infer = c(TRUE, FALSE),
+    level = 0.95
   )
-}
+)
+
+estimate_column <- intersect(
+  c(
+    "emmean",
+    "mean.class",
+    "response"
+  ),
+  names(predictions_raw)
+)[1]
 
 lower_column <- grep(
-  "LCL|lower.CL",
-  names(prediction_table),
+  "LCL|lower\\.CL",
+  names(predictions_raw),
   value = TRUE
 )[1]
 
 upper_column <- grep(
-  "UCL|upper.CL",
-  names(prediction_table),
+  "UCL|upper\\.CL",
+  names(predictions_raw),
   value = TRUE
 )[1]
 
 if (
-  is.na(lower_column) ||
-  is.na(upper_column)
+  is.na(estimate_column) ||
+    is.na(lower_column) ||
+    is.na(upper_column)
 ) {
   stop(
-    "Could not identify confidence-interval columns."
+    paste0(
+      "Could not identify prediction or confidence-interval ",
+      "columns returned by emmeans."
+    ),
+    call. = FALSE
   )
 }
 
-prediction_table$predicted_rating <-
-  prediction_table$response * 100
-
-prediction_table$lower_rating <-
-  prediction_table[[lower_column]] * 100
-
-prediction_table$upper_rating <-
-  prediction_table[[upper_column]] * 100
+model_predictions <- data.frame(
+  continuation_type =
+    predictions_raw$continuation_type,
+  adverb_type =
+    predictions_raw$adverb_type,
+  negation_position =
+    predictions_raw$negation_position,
+  predicted_rating =
+    predictions_raw[[estimate_column]],
+  std_error =
+    predictions_raw$SE,
+  lower_95 =
+    predictions_raw[[lower_column]],
+  upper_95 =
+    predictions_raw[[upper_column]],
+  stringsAsFactors = FALSE
+)
 
 write.csv(
-  prediction_table,
+  model_predictions,
   file.path(
     table_directory,
-    "exp2_model_predictions.csv"
+    "exp2_primary_model_predictions.csv"
   ),
   row.names = FALSE
 )
 
 
-# ------------------------------------------------------------
-# 11. Model-prediction figure
-# ------------------------------------------------------------
+# ---- Raw-rating figure -------------------------------------------------------
 
-prediction_plot <- ggplot2::ggplot(
-  prediction_table,
-  ggplot2::aes(
-    x = event_type,
-    y = predicted_rating,
-    color = sentence_type,
-    group = sentence_type
-  )
-) +
-  ggplot2::geom_point(
-    position = ggplot2::position_dodge(
-      width = 0.35
-    ),
-    size = 2.5
-  ) +
-  ggplot2::geom_line(
-    position = ggplot2::position_dodge(
-      width = 0.35
+raw_rating_table <- prop.table(
+  table(
+    rating = exp2_primary$rating,
+    continuation_type =
+      exp2_primary$continuation_type,
+    adverb_type =
+      exp2_primary$adverb_type,
+    negation_position =
+      exp2_primary$negation_position
+  ),
+  margin = c(2, 3, 4)
+)
+
+raw_rating_plot_data <- as.data.frame(
+  raw_rating_table,
+  stringsAsFactors = FALSE
+)
+
+names(
+  raw_rating_plot_data
+)[
+  names(raw_rating_plot_data) == "Freq"
+] <- "proportion"
+
+raw_rating_plot <-
+  ggplot2::ggplot(
+    raw_rating_plot_data,
+    ggplot2::aes(
+      x = continuation_type,
+      y = proportion,
+      fill = factor(rating)
     )
   ) +
-  ggplot2::geom_errorbar(
-    ggplot2::aes(
-      ymin = lower_rating,
-      ymax = upper_rating
-    ),
-    position = ggplot2::position_dodge(
-      width = 0.35
-    ),
-    width = 0.15
+  ggplot2::geom_col(
+    color = "white",
+    linewidth = 0.2
   ) +
-  ggplot2::facet_wrap(
-    ~ polarity
+  ggplot2::facet_grid(
+    negation_position ~ adverb_type
   ) +
   ggplot2::scale_y_continuous(
-    limits = c(0, 100),
-    breaks = seq(0, 100, 20)
+    labels = scales::percent_format()
+  ) +
+  ggplot2::scale_fill_brewer(
+    palette = "YlGnBu",
+    direction = 1
   ) +
   ggplot2::labs(
-    x = "Event type",
-    y = "Model-predicted rating",
-    color = "Modification type"
+    title =
+      "Experiment II: observed rating distributions",
+    subtitle =
+      "Primary manner–temporal analysis",
+    x = "Continuation type",
+    y = "Proportion",
+    fill = "Rating"
   ) +
   ggplot2::theme_minimal(
-    base_size = 12
+    base_size = 13
   ) +
   ggplot2::theme(
     legend.position = "top",
-    panel.grid.minor = ggplot2::element_blank()
+    panel.grid.minor =
+      ggplot2::element_blank()
   )
 
 ggplot2::ggsave(
   filename = file.path(
     figure_directory,
-    "exp2_model_predictions.png"
+    "exp2_primary_raw_ratings.png"
+  ),
+  plot = raw_rating_plot,
+  width = 10,
+  height = 7,
+  dpi = 300
+)
+
+
+# ---- Model-prediction figure -------------------------------------------------
+
+prediction_plot_data <- model_predictions
+
+prediction_plot_data$continuation_type <- factor(
+  prediction_plot_data$continuation_type,
+  levels = c(
+    "match",
+    "mismatch"
+  ),
+  labels = c(
+    "Match",
+    "Mismatch"
+  )
+)
+
+prediction_plot_data$adverb_type <- factor(
+  prediction_plot_data$adverb_type,
+  levels = c(
+    "temporal",
+    "manner"
+  ),
+  labels = c(
+    "Temporal",
+    "Manner"
+  )
+)
+
+prediction_plot_data$negation_position <- factor(
+  prediction_plot_data$negation_position,
+  levels = c(
+    "second_clause",
+    "first_clause"
+  ),
+  labels = c(
+    "Negation in second clause",
+    "Negation in first clause"
+  )
+)
+
+prediction_plot <-
+  ggplot2::ggplot(
+    prediction_plot_data,
+    ggplot2::aes(
+      x = continuation_type,
+      y = predicted_rating,
+      group = adverb_type,
+      color = adverb_type
+    )
+  ) +
+  ggplot2::geom_line(
+    linewidth = 0.8
+  ) +
+  ggplot2::geom_point(
+    size = 3
+  ) +
+  ggplot2::geom_errorbar(
+    ggplot2::aes(
+      ymin = lower_95,
+      ymax = upper_95
+    ),
+    width = 0.08,
+    linewidth = 0.6
+  ) +
+  ggplot2::facet_wrap(
+    ~ negation_position
+  ) +
+  ggplot2::scale_color_manual(
+    values = c(
+      "Temporal" = "#E76F51",
+      "Manner" = "#2A9D8F"
+    )
+  ) +
+  ggplot2::coord_cartesian(
+    ylim = c(1, 5)
+  ) +
+  ggplot2::labs(
+    title =
+      "Experiment II: cumulative-link model predictions",
+    subtitle =
+      "Expected ratings with 95% confidence intervals",
+    x = "Continuation type",
+    y = "Model-predicted rating",
+    color = "Adverb type"
+  ) +
+  ggplot2::theme_minimal(
+    base_size = 13
+  ) +
+  ggplot2::theme(
+    legend.position = "top",
+    panel.grid.minor =
+      ggplot2::element_blank()
+  )
+
+ggplot2::ggsave(
+  filename = file.path(
+    figure_directory,
+    "exp2_primary_model_predictions.png"
   ),
   plot = prediction_plot,
   width = 10,
@@ -899,53 +905,45 @@ ggplot2::ggsave(
 )
 
 
-# ------------------------------------------------------------
-# 12. Save model metadata and R environment
-# ------------------------------------------------------------
+# ---- Model metadata ----------------------------------------------------------
 
 model_metadata <- data.frame(
-  model = c(
-    "affirmative",
-    "negative"
+  field = c(
+    "study",
+    "analysis",
+    "input_file",
+    "participants",
+    "observations",
+    "scenarios",
+    "response_scale",
+    "model_family",
+    "link",
+    "fixed_effects",
+    "random_effects",
+    "contrast_coding",
+    "rating_order"
   ),
-  observations = c(
-    affirmative_results$model_rows,
-    negative_results$model_rows
-  ),
-  participants = c(
-    affirmative_results$model_participants,
-    negative_results$model_participants
-  ),
-  positive_definite_hessian = c(
-    isTRUE(
-      affirmative_results$model$sdr$pdHess
+  value = c(
+    "Experiment II",
+    "Primary manner–temporal analysis",
+    input_file,
+    observed_participants,
+    observed_observations,
+    observed_scenarios,
+    "Ordinal ratings from 1 to 5",
+    "Cumulative link mixed model",
+    "logit",
+    paste(
+      "continuation_type * adverb_type *",
+      "negation_position"
     ),
-    isTRUE(
-      negative_results$model$sdr$pdHess
-    )
+    paste(
+      "Random intercepts for participant_id",
+      "and scenario"
+    ),
+    "Sum coding",
+    "1 < 2 < 3 < 4 < 5"
   ),
-  convergence_code = c(
-    affirmative_results$model$fit$convergence,
-    negative_results$model$fit$convergence
-  ),
-  family = c("beta", "beta"),
-  link = c("logit", "logit"),
-  modifier_order = c(
-    "manner_before_path",
-    "manner_before_path"
-  ),
-  sentence_reference = c(
-    "conflated",
-    "conflated"
-  ),
-  sentence_level_2 = c("path", "path"),
-  sentence_level_3 = c("manner", "manner"),
-  event_reference = c(
-    "conflated",
-    "conflated"
-  ),
-  event_level_2 = c("path", "path"),
-  event_level_3 = c("manner", "manner"),
   stringsAsFactors = FALSE
 )
 
@@ -953,57 +951,93 @@ write.csv(
   model_metadata,
   file.path(
     table_directory,
-    "exp2_model_metadata.csv"
+    "exp2_primary_model_metadata.csv"
   ),
   row.names = FALSE
 )
 
-writeLines(
-  capture.output(
-    sessionInfo()
-  ),
+
+# ---- Save model and session information -------------------------------------
+
+saveRDS(
+  primary_model,
   file.path(
+    model_directory,
+    "exp2_primary_clmm.rds"
+  )
+)
+
+capture.output(
+  sessionInfo(),
+  file = file.path(
     model_directory,
     "session-info.txt"
   )
 )
 
 
-# ------------------------------------------------------------
-# 13. Final summary
-# ------------------------------------------------------------
+# ---- Completion message ------------------------------------------------------
 
-message("")
-message("============================================")
-message("Experiment 2 analysis complete")
-message("============================================")
-message("")
-message(
-  "Included participants: ",
-  included_participants
+cat("\n")
+cat("============================================\n")
+cat("Experiment II primary analysis complete\n")
+cat("============================================\n\n")
+
+cat(
+  "Participants: ",
+  observed_participants,
+  "\n",
+  sep = ""
 )
-message(
-  "Excluded participants: ",
-  excluded_participants
+
+cat(
+  "Model observations: ",
+  observed_observations,
+  "\n",
+  sep = ""
 )
-message(
-  "Affirmative model observations: ",
-  affirmative_results$model_rows
+
+cat(
+  "Scenarios: ",
+  observed_scenarios,
+  "\n",
+  sep = ""
 )
-message(
-  "Negative model observations: ",
-  negative_results$model_rows
+
+cat(
+  "Maximum absolute gradient: ",
+  format(
+    maximum_absolute_gradient,
+    scientific = TRUE
+  ),
+  "\n",
+  sep = ""
 )
-message("")
-message(
-  "Figures written to: ",
-  figure_directory
+
+cat(
+  "Positive-definite Hessian: ",
+  positive_definite_hessian,
+  "\n",
+  sep = ""
 )
-message(
+
+cat(
+  "\nFigures written to: ",
+  figure_directory,
+  "\n",
+  sep = ""
+)
+
+cat(
   "Tables written to: ",
-  table_directory
+  table_directory,
+  "\n",
+  sep = ""
 )
-message(
-  "Models written to: ",
-  model_directory
+
+cat(
+  "Model written to: ",
+  model_directory,
+  "\n",
+  sep = ""
 )
