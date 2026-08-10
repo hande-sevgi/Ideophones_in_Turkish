@@ -330,10 +330,6 @@ If you use these materials, please cite the dissertation:
 }
 ```
 
-## License
-
-No reuse license has yet been specified for this repository. Please contact the author before reproducing or redistributing the data, materials, or analysis code.
-
 ## Author
 
 **Hande Sevgi**
