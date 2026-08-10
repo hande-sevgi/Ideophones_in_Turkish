@@ -1,254 +1,234 @@
 # Ideophones and Adverbial Interpretation in Turkish
 
-This repository contains the data, documentation, and R analysis materials for three acceptability-judgment experiments investigating manner adverbials and ideophones in Turkish.
+Data, experimental materials, and analysis code for three acceptability-judgment experiments investigating the interpretation of manner adverbials and ideophones in Turkish.
 
-The studies form Chapter 4, “Where Are Your Manners?”, of my doctoral dissertation, *Manner Modification Across Modalities: Insights from Gesture, Sign, and Spoken Language* (Harvard University, 2026).
+This project accompanies Chapter 4, "Where Are Your Manners?", of:
 
-The corresponding research archive is available through the [Open Science Framework](https://osf.io/buftx/overview).
+> Sevgi, Hande. 2026. *Manner Modification Across Modalities: Insights from Gesture, Sign, and Spoken Language*. Doctoral dissertation, Harvard University.
 
 ## Project overview
 
-Event-modifying expressions differ in their semantic content, discourse function, and degree of morphological integration. This project examines how these properties affect the interpretation of Turkish manner adverbials and ideophones, particularly in affirmative and negative environments.
+Event-modifying expressions differ in semantic class, discourse function, depictive form, and degree of morphological integration. This project examines how those properties affect the interpretation of Turkish manner adverbials and ideophones, particularly in affirmative and negative environments.
 
-The studies compare information expressed through:
+The studies compare:
 
 * lexical manner adverbials;
-
 * temporal adverbials;
-
 * reduplicated ideophones;
-
 * ideophone-derived converbial forms;
-
 * different constituent orders and information-structural configurations.
 
 Together, the experiments investigate how semantic class, negation, information structure, depictive form, and morphological integration interact during sentence interpretation.
 
-## Research overview
+## Research questions
 
-This project examines how negation, information structure, semantic class, and morphological integration affect the interpretation of Turkish event-modifying expressions.
+The project addresses the following questions:
 
-The central research questions are:
-
-* Do manner and temporal adverbials behave differently under negation?
-* Does an adverbial’s position relative to the default focus position affect its interpretation?
-* Do Turkish ideophones differ from ordinary lexical manner adverbs?
-* Does the morphological integration of an ideophone affect its acceptability under negation?
-* Is ideophone interpretation primarily determined by depictive form or by semantic class?
-
-Across the three experiments, lexical and ideophonic manner expressions pattern together and differ from temporal expressions. The findings suggest that their interpretation is shaped primarily by semantic class rather than depictive form alone.
+1. Do manner and temporal adverbials behave differently under negation?
+2. Does an adverbial's position relative to the default focus position affect its interpretation?
+3. Do Turkish ideophones differ from ordinary lexical manner adverbs?
+4. Does the morphological integration of an ideophone affect its acceptability under negation?
+5. Is ideophone interpretation primarily determined by depictive form or by semantic class?
 
 ## Studies
 
-| Study          | Research focus                                                    | Full design                                                                    | Analysis strategy                                                             |             Analysed sample |
-| -------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- | --------------------------: |
-| Experiment I   | Adverbial interpretation under negation in contrastive contexts   | 3 × 2 × 2 ordinal acceptability-judgment design                                | Primary manner–temporal analysis followed by an analysis including ideophones |  50 native Turkish speakers |
-| Experiment II  | Information structure and adverbial position                      | Parallel 3 × 2 × 2 ordinal design with altered constituent order               | Primary manner–temporal analysis followed by an analysis including ideophones |  49 native Turkish speakers |
-| Experiment III | Ideophones under negation without a contrastive discourse context | Ideophonic and non-ideophonic adverbials in affirmative and negative sentences | Comparisons of semantic class, iconicity, and morphological integration       | 114 native Turkish speakers |
+### Experiment I: Adverbial interpretation under negation
 
-## Experiment I: Adverbial interpretation under negation
+Experiment I investigates manner, temporal, and ideophonic adverbials in two-clause contrastive constructions with canonical constituent order. The complete experimental design is 3 x 2 x 2:
 
-Experiment I investigates manner, temporal, and ideophonic adverbials in two-clause contrastive constructions.
+* Target adverbial type: manner, temporal, or ideophone
+* Continuation type: match or mismatch
+* Negation position: first or second clause
 
-The complete experimental dataset follows a 3 × 2 × 2 structure:
+Participants evaluated sentence naturalness using a five-point ordinal scale. Sixty native Turkish speakers were recruited. Ten were excluded using the attention-check criteria reported in the dissertation, resulting in an analysed sample of 50 participants.
 
-* target adverbial type: manner, temporal, or ideophone;
-* continuation type: matching or mismatching;
-* position of negation: first or second clause.
+The analysis is implemented in two stages. The primary 2 x 2 x 2 analysis compares lexical manner and temporal adverbials. The extended 3 x 2 x 2 analysis adds ideophones as the third adverbial-type level.
 
-Participants evaluated sentence naturalness using a five-point ordinal scale.
+### Experiment II: Adverbials and information structure
 
-The statistical analysis was conducted in two stages. The primary analysis compared lexical manner and temporal adverbials using a 2 × 2 × 2 cumulative link mixed model. A subsequent extended analysis introduced ideophones as the third level of target adverbial type, producing a 3 × 2 × 2 analysis.
+Experiment II uses the same three adverbial types and factorial structure as Experiment I but changes the relative position of the target and locative adverbials. The target adverbial is moved away from the immediately preverbal position, which is commonly associated with focus in Turkish.
 
-This staged approach reproduces the original comparison between manner and temporal adverbials before testing whether ideophones pattern with lexical manner adverbs or constitute a distinct interpretive class.
+Participants evaluated sentence naturalness using a five-point ordinal scale. Sixty native Turkish speakers were recruited. Eleven were excluded using the criteria reported in the dissertation, resulting in an analysed sample of 49 participants.
 
-A total of 60 native Turkish speakers were recruited. Ten participants were excluded using the attention-check criteria described in the dissertation, resulting in an analysed sample of 50 participants.
+As in Experiment I, the primary 2 x 2 x 2 analysis compares manner and temporal adverbials, and the extended 3 x 2 x 2 analysis includes ideophones.
 
-## Experiment II: Adverbials and information structure
+### Experiment III: Ideophones without a contrastive discourse context
 
-Experiment II uses the same three adverbial types and factorial structure as Experiment I but changes the relative position of the target and locative adverbials in the first clause.
-
-The complete experimental dataset follows a parallel 3 × 2 × 2 structure:
-
-* target adverbial type: manner, temporal, or ideophone;
-* continuation type: matching or mismatching;
-* position of negation: first or second clause.
-
-The target adverbial is moved away from the immediately preverbal position, which is commonly associated with focus in Turkish. This manipulation tests whether information structure affects the interpretation and acceptability of different adverbial classes.
-
-As in Experiment I, the analysis was conducted in two stages. The primary 2 × 2 × 2 analysis compared lexical manner and temporal adverbials. The extended 3 × 2 × 2 analysis then included ideophones as the third adverbial-type level.
-
-This extended analysis tests whether ideophones pattern with lexical manner adverbs and whether that relationship changes when the target adverbial is displaced from the immediately preverbal position.
-
-Participants evaluated sentence naturalness using a five-point ordinal scale.
-
-A total of 60 native Turkish speakers were recruited. Eleven participants were excluded according to the attention-check criteria described in the dissertation, resulting in an analysed sample of 49 participants.
-
-## Experiment III: Ideophones without a contrastive discourse context
-
-Experiment III examines adverbials in isolated, single-clause sentences. Unlike Experiments I and II, it does not use contrastive continuations.
-
-Participants evaluated sentence naturalness using a continuous scale from 0 to 100.
+Experiment III examines adverbials in isolated, single-clause sentences. Participants evaluated sentence naturalness using a continuous scale from 0 to 100.
 
 The experiment compares:
 
 * reduplicated ideophones with relatively low morphological integration;
-* ideophone-derived converbial forms with greater morphological integration;
+* ideophone-derived converbial forms with relatively high morphological integration;
 * lexical manner adverbs;
 * temporal adverbs;
 * ideophonic and non-ideophonic stimulus sets;
 * affirmative and negative sentences.
 
-A total of 120 participants were recruited. Four participants were excluded because they reported that they were not native speakers of Turkish. Two additional participants were excluded using the attention-check criteria. The final analysed sample contained 114 participants.
+One hundred twenty participants were recruited. Four were excluded because they reported that they were not native speakers of Turkish. Two additional participants were excluded using the documented attention-check criterion. The final analysed sample contained 114 participants.
 
-## Analysis structure
+## Methods
 
-For Experiments I and II, “primary” and “extended” refer to different analytical scopes within the same experiments, not to separate experiments or separately collected datasets.
+Experiments I and II use cumulative link mixed models for five-point ordinal ratings. The models use sum-coded predictors and random intercepts for participant and scenario. Experiment III uses linear mixed-effects models for continuous ratings, with participant and scenario random intercepts.
 
-| Analysis          | Adverbial-type levels           | Factorial structure |
-| ----------------- | ------------------------------- | ------------------- |
-| Primary analysis  | Manner and temporal             | 2 × 2 × 2           |
-| Extended analysis | Manner, temporal, and ideophone | 3 × 2 × 2           |
+The principal analyses are conducted in R using packages including:
 
-The extended analyses supplement the primary comparisons by directly testing whether ideophones align with lexical manner adverbials or show a distinct response pattern.
+* `readxl`
+* `ordinal`
+* `emmeans`
+* `ggplot2`
+* `scales`
+* `lme4`
+* `lmerTest`
 
-## Repository structure
+### Model evaluation
 
-The repository is being organized using a reproducible computational social science workflow:
+The ordinal-analysis scripts record the model convergence code, maximum absolute gradient, Hessian status, Hessian condition number, log likelihood, AIC, and BIC. Experiment III records convergence messages and singularity checks and generates residual-versus-fitted and normal Q-Q plots.
+
+Model summaries, coefficient tables, estimated marginal means, conditional contrasts, prediction tables, diagnostic information, figures, and fitted model objects are saved under `output/`. Diagnostic limitations should be considered when interpreting individual coefficients or contrasts.
+
+## Repository contents
 
 ```text
 Ideophones_in_Turkish/
-├── README.md
-├── code/
-│   └── legacy/
-│   │   └── Sevgi_Chapter4.R
-│   └── scripts/
-│       ├── 01_validate_inputs.R
-│       ├── 02_prepare_processed_data.R
-│       ├── 03_analyze_experiment_1.R
-│       ├── 04_exp1_extended_analysis.R
-│       ├── 05_analyze_experiment_2.R
-│       ├── 06_exp2_extended_analysis.R
-│       └── 07_analyze_experiment_3.R
-├── data/
-│   ├── input/
-│   │   ├── Experiment_I.xlsx
-│   │   ├── Experiment_II.xlsx
-│   │   └── Experiment_III.xlsx
-│   ├── processed/
-│   ├── codebook/
-│   │   ├── README.md
-│   │   ├── files.csv
-│   │   └── variables.csv
-│   └── README.md
-├── materials/
-│   └── README.md
-├── output/
-│   ├── figures/
-│   ├── tables/
-│   └── models/
-└──  .gitignore
+|-- README.md
+|-- code/
+|   |-- legacy/
+|   |   `-- Sevgi_Chapter4.R
+|   `-- scripts/
+|       |-- 01_validate_inputs.R
+|       |-- 02_prepare_processed_data.R
+|       |-- 03_analyze_experiment_1.R
+|       |-- 04_exp1_extended_analysis.R
+|       |-- 05_analyze_experiment_2.R
+|       |-- 06_exp2_extended_analysis.R
+|       `-- 07_analyze_experiment_3.R
+|-- data/
+|   |-- README.md
+|   |-- input/
+|   |   |-- Experiment_I.xlsx
+|   |   |-- Experiment_II.xlsx
+|   |   `-- Experiment_III.xlsx
+|   |-- processed/
+|   |   |-- exp1_contrastive_canonical.csv
+|   |   |-- exp2_contrastive_noncanonical.csv
+|   |   `-- exp3_monoclause.csv
+|   `-- codebook/
+|       |-- README.md
+|       |-- files.csv
+|       `-- variables.csv
+|-- materials/
+|   `-- README.md
+|-- output/
+|   |-- figures/
+|   |-- tables/
+|   `-- models/
+`-- .gitignore
 ```
 
-Empty directories may not appear on GitHub until they contain a file. Directory-level `README.md` files may therefore be used to document their intended contents.
+### `data/`
 
-## Data provenance
+Contains the immutable organized workbooks, generated analysis-ready datasets, and codebook documentation. Source files under `data/input/` are read but not modified.
 
-The original research materials are archived in the project’s [OSF repository](https://osf.io/buftx/overview), titled “Encoding manner across modalities.”
+### `materials/`
 
-The Turkish manner-adverbial component of the OSF archive contains:
+Documents the experimental stimuli, instructions, condition lists, catch and filler trials, and related archival materials. Large materials may remain on OSF rather than being duplicated on GitHub.
 
-* the preliminary continuation task;
-* raw participant-response data for Experiment I;
-* raw participant-response data for Experiment II;
-* raw participant-response data for Experiment III;
-* organized Excel workbooks used in the dissertation analyses;
-* the original Chapter 4 R analysis script.
+### `code/legacy/`
 
-The principal source files include:
+Preserves the original Chapter 4 R analysis for provenance.
 
-| Study component                   | OSF source file                        |
-| --------------------------------- | -------------------------------------- |
-| Preliminary continuation task     | `PreliminaryStudyContinuationTask.csv` |
-| Experiment I raw responses        | `ContinuationTask_Canonical.csv`       |
-| Experiment II raw responses       | `ContinuationTask_Noncanonical.csv`    |
-| Experiment III raw responses      | `Monoclause.csv`                       |
-| Experiment I organized workbook   | `Experiment_I.xlsx`                    |
-| Experiment II organized workbook  | `Experiment_II.xlsx`                   |
-| Experiment III organized workbook | `Experiment_III.xlsx`                  |
-| Original dissertation analysis    | `Sevgi_Chapter4.R`                     |
+### `code/scripts/`
 
-The OSF archive serves as the long-term research deposit. This GitHub repository provides the documented and executable analysis workflow.
+Contains the ordered validation, data-preparation, and dissertation-analysis scripts.
 
-## Data directories
+| Script | Purpose |
+| --- | --- |
+| `01_validate_inputs.R` | Validates the three organized workbooks without modifying them. |
+| `02_prepare_processed_data.R` | Standardizes variables, constructs condition labels, applies the documented Experiment III attention-check exclusion, and creates three analysis-ready datasets. |
+| `03_analyze_experiment_1.R` | Reproduces the primary Experiment I manner-temporal cumulative link mixed model. |
+| `04_exp1_extended_analysis.R` | Reproduces the extended Experiment I model including ideophones. |
+| `05_analyze_experiment_2.R` | Reproduces the primary Experiment II manner-temporal cumulative link mixed model. |
+| `06_exp2_extended_analysis.R` | Reproduces the extended Experiment II model including ideophones. |
+| `07_analyze_experiment_3.R` | Reproduces the primary ideophone-group and supplementary full Experiment III linear mixed models. |
 
-### `data/input/`
+#### Primary and extended analyses
 
-This directory contains immutable copies of the source data used by the reproducible workflow.
+For Experiments I and II, `primary` and `extended` refer to two analytical scopes within the same experiment, not to separate experiments or separately collected datasets.
 
-Files in this directory should not be manually edited. Any recoding, exclusion, reshaping, or variable construction should be implemented through an R script.
+| Analysis | Adverbial-type levels | Factorial structure |
+| --- | --- | --- |
+| Primary | Manner and temporal | 2 x 2 x 2 |
+| Extended | Manner, temporal, and ideophone | 3 x 2 x 2 |
 
-### `data/processed/`
+Scripts 03 and 05 reproduce the original manner-temporal comparisons. Scripts 04 and 06 reproduce the dissertation analyses that extend those comparisons to ideophones. The extended scripts are not post-dissertation sensitivity analyses.
 
-This directory contains analysis-ready datasets created by `02_prepare_processed_data.R`.
+### Implemented results
 
-Processed files should be reproducible from the files in `data/input/`. They should not contain changes that cannot be traced to the preparation script.
+The Experiment I primary model uses 384 observations from 50 participants and converges with a positive-definite Hessian. It identifies interactions of continuation type with adverb type and with negation position. The extended model uses all 600 experimental observations. Holm-adjusted comparisons show that, in mismatch continuations, temporal targets receive lower ratings than manner and ideophonic targets, while manner and ideophonic targets do not differ reliably. No adverbial-type comparison in match continuations is significant after Holm adjustment.
 
-### `data/codebook/`
+The Experiment II primary model uses 392 observations from 49 participants and converges with a positive-definite Hessian. Continuation type, adverb type, and negation position contribute to the model, while the tested interaction terms are not statistically significant. The extended Experiment II script adds ideophones to the same factorial analysis and generates the corresponding conditional contrasts and ordinal category-probability visualizations.
 
-This directory documents the datasets and variables.
+The Experiment III workflow analyses 114 included participants. The primary model contains 912 observations and the supplementary full model contains 1,824 observations across eight scenarios. Both models converge and are non-singular. In the primary model, negative sentences receive substantially lower ratings. The temporal-by-negative interaction is positive, while the interactions involving the two ideophonic forms are not statistically significant. These results support the dissertation's broader conclusion that semantic class is central to the interpretation of these expressions.
 
-* `README.md` explains the experimental conditions, coding conventions, missing values, participant exclusions, and relationships among the datasets.
-* `files.csv` describes the purpose, provenance, and processing status of every data file.
-* `variables.csv` defines each variable, its data type, allowed values, units, and interpretation.
+### `output/`
 
-## Materials directory
+Contains generated figures, tables, model summaries, diagnostic information, fitted model objects, and R session information. Generated outputs should not be edited manually.
 
-The `materials/` directory documents the experimental materials associated with the three studies.
+## Data files
 
-Where public release is appropriate, this directory may contain:
+| Study | Immutable input | Analysis-ready dataset |
+| --- | --- | --- |
+| Experiment I | `Experiment_I.xlsx` | `exp1_contrastive_canonical.csv` |
+| Experiment II | `Experiment_II.xlsx` | `exp2_contrastive_noncanonical.csv` |
+| Experiment III | `Experiment_III.xlsx` | `exp3_monoclause.csv` |
 
-* experimental stimuli;
-* participant instructions;
-* catch and filler trials;
-* condition lists;
-* translated examples;
-* information about counterbalancing and randomization.
+Variable definitions, coded values, missing-value conventions, and exclusion rules are documented in `data/codebook/`.
 
-A directory-level README should explain how each material relates to the experiments and to the corresponding dissertation appendix.
+## Open Science Framework archive
 
-## Analysis workflow
+The companion OSF project contains the archived research materials, including raw participant responses, organized workbooks, experimental materials, and the original Chapter 4 analysis:
 
-The intended workflow is:
+**[View the OSF project](https://osf.io/buftx/)**
 
-1. `01_validate_inputs.R` checks filenames, variables, participant counts, condition labels, missing values, rating ranges, and study-specific expectations.
-2. `02_prepare_processed_data.R` imports the source files, standardizes variable names and factor levels, applies the documented exclusion criteria, and writes analysis-ready datasets.
-3. `03_analyze_experiment_1.R` reproduces the primary 2 × 2 × 2 manner–temporal analysis for Experiment I.
-4. `04_exp1_extended_analysis.R` extends Experiment I to the complete 3 × 2 × 2 design by including ideophones.
-5. `05_analyze_experiment_2.R` reproduces the primary 2 × 2 × 2 manner–temporal analysis for Experiment II.
-6. `06_exp2_extended_analysis.R` extends Experiment II to the complete 3 × 2 × 2 design by including ideophones.
-7. `07_analyze_experiment_3.R` analyses ideophonic and non-ideophonic adverbials in Experiment III.
+GitHub is used for the documented computational workflow. OSF serves as the long-term archival location for research materials and large files.
 
-The source datasets remain unchanged throughout the workflow.
+## Reproducibility
 
-## Original dissertation analysis
+This repository provides an implemented, end-to-end workflow for validating the three source workbooks, preparing analysis-ready data, reproducing the Chapter 4 analyses, evaluating the fitted models, and generating documented outputs.
 
-The original dissertation analysis is preserved in `code/legacy/Sevgi_Chapter4.R`, together with the organized Excel workbooks originally used by the script.
+The workflow:
 
-The original analyses include:
+1. validates workbook names, worksheets, variables, participant counts, observation counts, and rating ranges;
+2. preserves the source workbooks without modification;
+3. creates study-specific anonymous participant identifiers;
+4. standardizes variable names and experimental condition labels;
+5. applies and records the documented participant-exclusion criteria;
+6. creates three analysis-ready CSV datasets;
+7. fits the primary, extended, and supplementary dissertation models;
+8. evaluates convergence, Hessian status, singularity, and residual patterns as appropriate;
+9. generates statistical tables and publication-ready figures;
+10. saves fitted model objects and session information.
 
-* cumulative link mixed models for the five-point ordinal ratings in Experiments I and II;
-* linear mixed-effects models for the continuous ratings in Experiment III;
-* participant and scenario random intercepts;
-* estimated marginal means;
-* post-hoc pairwise comparisons;
-* descriptive and model-based visualizations.
+### Running the workflow
 
-These legacy files document the original analytical process. The numbered scripts under `code/scripts/` provide the reorganized, auditable workflow and should become the primary entry point for reproduction.
+Open the repository in RStudio and ensure that the repository root is the active project directory.
 
-## Running the reproducible workflow
+Install the required packages if they are not already available:
 
-Open the repository’s R project in RStudio and run the scripts from the repository root in numerical order:
+```r
+install.packages(c(
+  "readxl",
+  "ordinal",
+  "emmeans",
+  "ggplot2",
+  "scales",
+  "lme4",
+  "lmerTest"
+))
+```
+
+Run the scripts from the repository root in numerical order:
 
 ```r
 source("code/scripts/01_validate_inputs.R")
@@ -260,53 +240,29 @@ source("code/scripts/06_exp2_extended_analysis.R")
 source("code/scripts/07_analyze_experiment_3.R")
 ```
 
-Do not use `setwd()` inside the analysis scripts. All file paths should be defined relative to the repository root.
+Scripts 03 through 07 reproduce analyses reported in Chapter 4. Scripts 04 and 06 extend the primary manner-temporal models to the complete three-level adverbial-type factor; they supplement the primary comparisons but are not sensitivity analyses.
 
-## Outputs
+The source files under `data/input/` remain unchanged. Analysis-ready datasets are written to `data/processed/`, and generated results are written to `output/`.
 
-Reproducible outputs are written to:
+Do not use `setwd()` inside the scripts. All file paths are defined relative to the repository root.
 
-```text
-output/
-├── figures/
-├── tables/
-└── models/
-```
+## AI-assisted workflow disclosure
 
-Figures should be saved as publication-ready image files. Tables should be saved in open formats such as CSV. Fitted model objects may be saved as RDS files when they are useful for verification or reuse.
+The development of this reproducible computational workflow was assisted by OpenAI's ChatGPT and Codex. AI assistance was used to help reorganize the original dissertation materials, refactor the legacy R analysis into numbered scripts, troubleshoot code, design validation checks, structure generated outputs, and improve repository documentation.
 
-Generated outputs should not be manually edited.
+The research questions, experimental designs, data collection, original dissertation analyses, and substantive scholarly conclusions are the work of the author. The author reviewed the AI-assisted code, ran the scripts locally, checked participant and observation counts, evaluated model convergence and diagnostics, and compared the reproduced results with the dissertation. AI tools did not independently collect data or make final decisions about data exclusion, statistical interpretation, or reporting.
 
-## Principal findings
+This disclosure is provided for transparency. Responsibility for the accuracy of the repository and its scholarly interpretation remains with the author.
 
-The experiments provide evidence that:
+## Participant data and responsible use
 
-* matching continuations are generally preferred over mismatching continuations;
-* manner and temporal adverbials exhibit different interpretive profiles under negation and contrastive focus;
-* adverbial position relative to the immediately preverbal position affects acceptability;
-* Turkish ideophones pattern closely with lexical manner adverbs rather than forming an entirely separate interpretive class;
-* the observed effects cannot be attributed solely to the iconic or depictive form of ideophones;
-* semantic class plays a central role in the interpretation of event-modifying expressions.
+The datasets contain behavioral judgments collected for academic research. Users should:
 
-## Relationship to the dissertation
-
-These materials support Chapter 4 of:
-
-> Sevgi, Hande. 2026. *Manner Modification Across Modalities: Insights from Gesture, Sign, and Spoken Language*. Doctoral dissertation, Harvard University.
-
-The dissertation provides the complete theoretical motivation, experimental materials, participant criteria, statistical results, and interpretation.
-
-## Open research materials
-
-The complete OSF project covers the dissertation’s three empirical domains:
-
-* classifier constructions in Turkish Sign Language;
-* path and manner in written English and co-speech gesture;
-* manner adverbials and ideophones in Turkish.
-
-Research archive: https://osf.io/buftx/overview
-
-Code repository: https://github.com/hande-sevgi/ideophones_in_Turkish
+* Treat participant identifiers as pseudonymous research identifiers.
+* Avoid attempting to identify participants.
+* Avoid combining the data with external information for re-identification.
+* Follow applicable ethical, institutional, and data-use requirements.
+* Cite the project when using its data, materials, or code.
 
 ## Ethics and funding
 
@@ -318,20 +274,19 @@ Public files should be reviewed to ensure that they do not disclose direct ident
 
 ## Citation
 
-If you use these materials, please cite the dissertation:
+If you use this project, please cite:
 
-```bibtex
-@phdthesis{sevgi2026manner,
-  author = {Sevgi, Hande},
-  title = {Manner Modification Across Modalities:
-           Insights from Gesture, Sign, and Spoken Language},
-  school = {Harvard University},
-  year = {2026}
-}
+```text
+Sevgi, Hande. 2026.
+Manner Modification Across Modalities:
+Insights from Gesture, Sign, and Spoken Language.
+Doctoral dissertation, Harvard University.
 ```
 
 ## Author
 
-**Hande Sevgi**
-PhD in Linguistics, Harvard University
-[GitHub profile](https://github.com/hande-sevgi)
+**Hande Sevgi**  
+Linguist working on semantics, event structure, ideophones, gesture, sign language, and multimodal communication.
+
+* [Academic website](https://hande-sevgi.github.io/)
+* [OSF project](https://osf.io/buftx/)
