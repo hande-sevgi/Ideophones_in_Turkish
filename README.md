@@ -85,7 +85,7 @@ A total of 120 participants were recruited. Four participants were excluded beca
 
 ## Analysis structure
 
-For Experiments I and II, “primary” and “extended” refer to different analytical scopes within the same experiments—not to separate experiments or separately collected datasets.
+For Experiments I and II, “primary” and “extended” refer to different analytical scopes within the same experiments, not to separate experiments or separately collected datasets.
 
 | Analysis          | Adverbial-type levels           | Factorial structure |
 | ----------------- | ------------------------------- | ------------------- |
