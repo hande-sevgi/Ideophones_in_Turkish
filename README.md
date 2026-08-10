@@ -330,8 +330,6 @@ If you use these materials, please cite the dissertation:
 }
 ```
 
-A repository-specific citation and versioned archive citation may be added when a permanent release of the computational workflow is deposited.
-
 ## License
 
 No reuse license has yet been specified for this repository. Please contact the author before reproducing or redistributing the data, materials, or analysis code.
