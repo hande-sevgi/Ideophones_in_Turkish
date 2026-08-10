@@ -6,6 +6,24 @@ The studies form Chapter 4, “Where Are Your Manners?”, of my doctoral disser
 
 The corresponding research archive is available through the [Open Science Framework](https://osf.io/buftx/overview).
 
+## Project overview
+
+Event-modifying expressions differ in their semantic content, discourse function, and degree of morphological integration. This project examines how these properties affect the interpretation of Turkish manner adverbials and ideophones, particularly in affirmative and negative environments.
+
+The studies compare information expressed through:
+
+* lexical manner adverbials;
+
+* temporal adverbials;
+
+* reduplicated ideophones;
+
+* ideophone-derived converbial forms;
+
+* different constituent orders and information-structural configurations.
+
+Together, the experiments investigate how semantic class, negation, information structure, depictive form, and morphological integration interact during sentence interpretation.
+
 ## Research overview
 
 This project examines how negation, information structure, semantic class, and morphological integration affect the interpretation of Turkish event-modifying expressions.
