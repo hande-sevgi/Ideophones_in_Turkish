@@ -94,36 +94,36 @@ Ideophones_in_Turkish/
 |-- README.md
 |-- code/
 |   |-- legacy/
-|   |   `-- Sevgi_Chapter4.R
-|   `-- scripts/
+|   |   └── Sevgi_Chapter4.R
+|   └── scripts/
 |       |-- 01_validate_inputs.R
 |       |-- 02_prepare_processed_data.R
 |       |-- 03_analyze_experiment_1.R
 |       |-- 04_exp1_extended_analysis.R
 |       |-- 05_analyze_experiment_2.R
 |       |-- 06_exp2_extended_analysis.R
-|       `-- 07_analyze_experiment_3.R
+|       └── 07_analyze_experiment_3.R
 |-- data/
 |   |-- README.md
 |   |-- input/
 |   |   |-- Experiment_I.xlsx
 |   |   |-- Experiment_II.xlsx
-|   |   `-- Experiment_III.xlsx
+|   |   └── Experiment_III.xlsx
 |   |-- processed/
 |   |   |-- exp1_contrastive_canonical.csv
 |   |   |-- exp2_contrastive_noncanonical.csv
-|   |   `-- exp3_monoclause.csv
-|   `-- codebook/
+|   |   └── exp3_monoclause.csv
+|   └── codebook/
 |       |-- README.md
 |       |-- files.csv
-|       `-- variables.csv
+|       └── variables.csv
 |-- materials/
-|   `-- README.md
+|   └── README.md
 |-- output/
 |   |-- figures/
 |   |-- tables/
-|   `-- models/
-`-- .gitignore
+|   └── models/
+└── .gitignore
 ```
 
 ### `data/`
