@@ -21,13 +21,13 @@ Each row represents one participantâ€™s rating of one trial. Participant id
 
 ### Experiments I and II
 
-The complete experimental design is 3 Ã— 2 Ã— 2:
+The complete experimental design is 3 X 2 X 2:
 
 - target adverbial type: `manner`, `temporal`, or `ideophone`;
 - continuation type: `match` or `mismatch`;
 - negation position: `first_clause` or `second_clause`.
 
-The primary analyses compare manner and temporal adverbials using a 2 Ã— 2 Ã— 2 design. The extended analyses include ideophones and use the complete 3 Ã— 2 Ã— 2 design. These are two analytical scopes within each experiment, not separate datasets or separately collected studies.
+The primary analyses compare manner and temporal adverbials using a 2 X 2 X 2 design. The extended analyses include ideophones and use the complete 3 X 2 X 2 design. These are two analytical scopes within each experiment, not separate datasets or separately collected studies.
 
 Experiment I uses canonical constituent order. Experiment II uses noncanonical constituent order in which the target adverbial is displaced from the immediately preverbal position.
 
