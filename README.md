@@ -104,7 +104,6 @@ Ideophones_in_Turkish/
 |       ├── 06_exp2_extended_analysis.R
 |       └── 07_analyze_experiment_3.R
 ├── data/
-|   ├── README.md
 |   ├── input/
 |   |   ├── Experiment_I.xlsx
 |   |   ├── Experiment_II.xlsx
@@ -118,7 +117,6 @@ Ideophones_in_Turkish/
 |       ├── files.csv
 |       └── variables.csv
 ├── materials/
-|   └── README.md
 ├── output/
 |   ├── figures/
 |   ├── tables/
