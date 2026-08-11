@@ -11,9 +11,9 @@ This directory documents the source and processed datasets used in the Chapter 4
 
 | Processed dataset | Study | Rows | Participants represented | Rating scale |
 | --- | --- | ---: | ---: | --- |
-| `exp1_contrastive_canonical.csv` | Experiment I | 1,400 | 50 | 1â€“5 ordinal |
-| `exp2_contrastive_noncanonical.csv` | Experiment II | 1,372 | 49 | 1â€“5 ordinal |
-| `exp3_monoclause.csv` | Experiment III | 2,784 | 116 total; 114 included | 0â€“100 continuous |
+| `exp1_contrastive_canonical.csv` | Experiment I | 1,400 | 50 | 1-5 ordinal |
+| `exp2_contrastive_noncanonical.csv` | Experiment II | 1,372 | 49 | 1-5 ordinal |
+| `exp3_monoclause.csv` | Experiment III | 2,784 | 116 total; 114 included | 0-100 continuous |
 
 Each row represents one participantâ€™s rating of one trial. Participant identifiers in the processed datasets are study-specific anonymous identifiers such as `exp1_001`.
 
