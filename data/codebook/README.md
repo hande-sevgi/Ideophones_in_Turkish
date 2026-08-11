@@ -15,7 +15,7 @@ This directory documents the source and processed datasets used in the Chapter 4
 | `exp2_contrastive_noncanonical.csv` | Experiment II | 1,372 | 49 | 1-5 ordinal |
 | `exp3_monoclause.csv` | Experiment III | 2,784 | 116 total; 114 included | 0-100 continuous |
 
-Each row represents one participantâ€™s rating of one trial. Participant identifiers in the processed datasets are study-specific anonymous identifiers such as `exp1_001`.
+Each row represents one participant's rating of one trial. Participant identifiers in the processed datasets are study-specific anonymous identifiers such as `exp1_001`.
 
 ## Experimental structure
 
@@ -88,4 +88,4 @@ source("code/scripts/02_prepare_processed_data.R")
 
 ## Provenance
 
-The input workbooks are organized archival datasets associated with Chapter 4 of Hande Sevgiâ€™s doctoral dissertation. The corresponding long-term research archive is available through the [Open Science Framework](https://osf.io/buftx/overview). `files.csv` records the relationship between each input workbook and its generated processed dataset.
+The input workbooks are organized archival datasets associated with Chapter 4 of Hande Sevgi's doctoral dissertation. The corresponding long-term research archive is available through the [Open Science Framework](https://osf.io/buftx/overview). `files.csv` records the relationship between each input workbook and its generated processed dataset.
