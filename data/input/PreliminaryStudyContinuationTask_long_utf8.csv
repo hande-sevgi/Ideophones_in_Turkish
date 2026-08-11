@@ -1,0 +1,305 @@
+﻿participant_id,source_row,duration_seconds,finished,possible_duplicate_submission,stimulus_set,item_position_in_source_block,source_column_number,condition_code,polarity,continuation_type,response_text
+P001,2,260,true,false,3,1,34,neg_manner,negative,manner,Limanda
+P001,2,260,true,false,3,2,35,aff_temporal,affirmative,temporal,Dersten sonra
+P001,2,260,true,false,3,3,36,aff_filler,affirmative,filler,Yenileri
+P001,2,260,true,false,3,4,37,neg_reduplication,negative,reduplication,Hüngür hüngür
+P001,2,260,true,false,3,5,38,aff_manner,affirmative,manner,Fokur fokur
+P001,2,260,true,false,3,6,39,neg_filler,negative,filler,Arkadaşlarına
+P001,2,260,true,false,3,7,40,neg_temporal,negative,temporal,Gündüz
+P001,2,260,true,false,3,8,41,aff_reduplication,affirmative,reduplication,Kolaylıkla
+P002,3,267,true,false,1,1,18,neg_reduplication,negative,reduplication,Sahilde
+P002,3,267,true,false,1,2,19,aff_manner,affirmative,manner,Bağırarak
+P002,3,267,true,false,1,3,20,neg_filler,negative,filler,Kemikleri
+P002,3,267,true,false,1,4,21,neg_temporal,negative,temporal,Evde
+P002,3,267,true,false,1,5,22,aff_reduplication,affirmative,reduplication,Çorba
+P002,3,267,true,false,1,6,23,aff_filler,affirmative,filler,Çikolataları
+P002,3,267,true,false,1,7,24,neg_manner,negative,manner,Bisiklet
+P002,3,267,true,false,1,8,25,aff_temporal,affirmative,temporal,Gece
+P003,4,220,true,false,3,1,34,neg_manner,negative,manner,Sonradan
+P003,4,220,true,false,3,2,35,aff_temporal,affirmative,temporal,Sonra
+P003,4,220,true,false,3,3,36,aff_filler,affirmative,filler,Yenileri
+P003,4,220,true,false,3,4,37,neg_reduplication,negative,reduplication,Kız
+P003,4,220,true,false,3,5,38,aff_manner,affirmative,manner,Süt
+P003,4,220,true,false,3,6,39,neg_filler,negative,filler,Yeğenine
+P003,4,220,true,false,3,7,40,neg_temporal,negative,temporal,Düz yolda
+P003,4,220,true,false,3,8,41,aff_reduplication,affirmative,reduplication,Daha sonra
+P004,5,340,true,false,6,1,58,aff_temporal,affirmative,temporal,Dün
+P004,5,340,true,false,6,2,59,neg_reduplication,negative,reduplication,Sesli
+P004,5,340,true,false,6,3,60,aff_filler,affirmative,filler,Yenileri
+P004,5,340,true,false,6,4,61,aff_manner,affirmative,manner,Sesli
+P004,5,340,true,false,6,5,62,neg_temporal,negative,temporal,Daha önce
+P004,5,340,true,false,6,6,63,neg_filler,negative,filler,Mektubu
+P004,5,340,true,false,6,7,64,aff_reduplication,affirmative,reduplication,Hızlı hızlı
+P004,5,340,true,false,6,8,65,neg_manner,negative,manner,Sessizce
+P005,6,296,true,false,2,1,26,aff_reduplication,affirmative,reduplication,Ama içindeki insanlar
+P005,6,296,true,false,2,2,27,neg_manner,negative,manner,Bağırarak
+P005,6,296,true,false,2,3,28,aff_filler,affirmative,filler,Ama etlerinden
+P005,6,296,true,false,2,4,29,aff_temporal,affirmative,temporal,Ama bugün
+P005,6,296,true,false,2,5,30,neg_reduplication,negative,reduplication,Ama süt
+P005,6,296,true,false,2,6,31,neg_filler,negative,filler,Onun yerine çırağı
+P005,6,296,true,false,2,7,32,aff_manner,affirmative,manner,Ama yanındaki tren
+P005,6,296,true,false,2,8,33,neg_temporal,negative,temporal,Gece
+P006,7,280,true,false,1,1,18,neg_reduplication,negative,reduplication,Cayır cayır
+P006,7,280,true,false,1,2,19,aff_manner,affirmative,manner,Dersleri
+P006,7,280,true,false,1,3,20,neg_filler,negative,filler,Kuru mama
+P006,7,280,true,false,1,4,21,neg_temporal,negative,temporal,Anne
+P006,7,280,true,false,1,5,22,aff_reduplication,affirmative,reduplication,Fazla
+P006,7,280,true,false,1,6,23,aff_filler,affirmative,filler,Ama bisküvileri
+P006,7,280,true,false,1,7,24,neg_manner,negative,manner,Çünkü yol
+P006,7,280,true,false,1,8,25,aff_temporal,affirmative,temporal,Akşam
+P007,8,615,true,false,1,1,18,neg_reduplication,negative,reduplication,Sadece süs eşyaları
+P007,8,615,true,false,1,2,19,aff_manner,affirmative,manner,Sıra arkadaşı
+P007,8,615,true,false,1,3,20,neg_filler,negative,filler,Kemik
+P007,8,615,true,false,1,4,21,neg_temporal,negative,temporal,Bugün
+P007,8,615,true,false,1,5,22,aff_reduplication,affirmative,reduplication,Yemek
+P007,8,615,true,false,1,6,23,aff_filler,affirmative,filler,Gerisini
+P007,8,615,true,false,1,7,24,neg_manner,negative,manner,Ağır ağır
+P007,8,615,true,false,1,8,25,aff_temporal,affirmative,temporal,Karısı
+P008,9,162,true,false,3,1,34,neg_manner,negative,manner,Yelkeni
+P008,9,162,true,false,3,2,35,aff_temporal,affirmative,temporal,Derste
+P008,9,162,true,false,3,3,36,aff_filler,affirmative,filler,Mektupları
+P008,9,162,true,false,3,4,37,neg_reduplication,negative,reduplication,İçin için
+P008,9,162,true,false,3,5,38,aff_manner,affirmative,manner,Yavaş
+P008,9,162,true,false,3,6,39,neg_filler,negative,filler,Fotoğraf
+P008,9,162,true,false,3,7,40,neg_temporal,negative,temporal,Gündüz
+P008,9,162,true,false,3,8,41,aff_reduplication,affirmative,reduplication,Kolay
+P009,10,190,true,false,4,1,42,aff_manner,affirmative,manner,insanlar
+P009,10,190,true,false,4,2,43,neg_temporal,negative,temporal,derste
+P009,10,190,true,false,4,3,44,neg_filler,negative,filler,yenileri
+P009,10,190,true,false,4,4,45,aff_reduplication,affirmative,reduplication,evde
+P009,10,190,true,false,4,5,46,neg_manner,negative,manner,geç
+P009,10,190,true,false,4,6,47,aff_filler,affirmative,filler,arkadaşına
+P009,10,190,true,false,4,7,48,aff_temporal,affirmative,temporal,sabah
+P009,10,190,true,false,4,8,49,neg_reduplication,negative,reduplication,kolay
+P010,11,185,true,false,4,1,42,aff_manner,affirmative,manner,Güvertesi
+P010,11,185,true,false,4,2,43,neg_temporal,negative,temporal,Teneffüste
+P010,11,185,true,false,4,3,44,neg_filler,negative,filler,Yeniler
+P010,11,185,true,false,4,4,45,aff_reduplication,affirmative,reduplication,Eve gelince
+P010,11,185,true,false,4,5,46,neg_manner,negative,manner,İsiticida
+P010,11,185,true,false,4,6,47,aff_filler,affirmative,filler,Kardeşine
+P010,11,185,true,false,4,7,48,aff_temporal,affirmative,temporal,Öğlen
+P010,11,185,true,false,4,8,49,neg_reduplication,negative,reduplication,Kolaylıkla
+P011,12,310,true,false,3,1,34,neg_manner,negative,manner,yolcu gemisi
+P011,12,310,true,false,3,2,35,aff_temporal,affirmative,temporal,öğretmen
+P011,12,310,true,false,3,3,36,aff_filler,affirmative,filler,yeni evrakları
+P011,12,310,true,false,3,4,37,neg_reduplication,negative,reduplication,kız
+P011,12,310,true,false,3,5,38,aff_manner,affirmative,manner,süt
+P011,12,310,true,false,3,6,39,neg_filler,negative,filler,yeğenine
+P011,12,310,true,false,3,7,40,neg_temporal,negative,temporal,otomobil
+P011,12,310,true,false,3,8,41,aff_reduplication,affirmative,reduplication,kadın
+P012,13,250,true,false,5,1,50,neg_temporal,negative,temporal,Bir hafta önce
+P012,13,250,true,false,5,2,51,aff_reduplication,affirmative,reduplication,Bağırarak
+P012,13,250,true,false,5,3,52,aff_filler,affirmative,filler,Yenilerini
+P012,13,250,true,false,5,4,53,neg_manner,negative,manner,Hıçkıra hıçkıra
+P012,13,250,true,false,5,5,54,aff_temporal,affirmative,temporal,Daha önce
+P012,13,250,true,false,5,6,55,neg_filler,negative,filler,Çiçekleri
+P012,13,250,true,false,5,7,56,neg_reduplication,negative,reduplication,Gayet sessizce
+P012,13,250,true,false,5,8,57,aff_manner,affirmative,manner,Korkuyla
+P013,14,462,true,false,5,1,50,neg_temporal,negative,temporal,bir gün önce
+P013,14,462,true,false,5,2,51,aff_reduplication,affirmative,reduplication,arkadaşı
+P013,14,462,true,false,5,3,52,aff_filler,affirmative,filler,yenilerini
+P013,14,462,true,false,5,4,53,neg_manner,negative,manner,hıçkırarak
+P013,14,462,true,false,5,5,54,aff_temporal,affirmative,temporal,süt
+P013,14,462,true,false,5,6,55,neg_filler,negative,filler,Whatsapp'an düğünü ile ilgili mesaj
+P013,14,462,true,false,5,7,56,neg_reduplication,negative,reduplication,hızlı bir şekilde
+P013,14,462,true,false,5,8,57,aff_manner,affirmative,manner,karısı
+P014,15,545,true,false,6,1,58,aff_temporal,affirmative,temporal,Ama ürünler
+P014,15,545,true,false,6,2,59,neg_reduplication,negative,reduplication,Bağırarak
+P014,15,545,true,false,6,3,60,aff_filler,affirmative,filler,Ama en önemli faturaları
+P014,15,545,true,false,6,4,61,aff_manner,affirmative,manner,Ama onu düşünen arkadaşı
+P014,15,545,true,false,6,5,62,neg_temporal,negative,temporal,Soba üzerinde hızla
+P014,15,545,true,false,6,6,63,neg_filler,negative,filler,Ama arkadaşına
+P014,15,545,true,false,6,7,64,aff_reduplication,affirmative,reduplication,Ama suda
+P014,15,545,true,false,6,8,65,neg_manner,negative,manner,Rüya aleminde
+P015,16,156,true,false,1,1,18,neg_reduplication,negative,reduplication,iskele
+P015,16,156,true,false,1,2,19,aff_manner,affirmative,manner,bağırarak
+P015,16,156,true,false,1,3,20,neg_filler,negative,filler,et
+P015,16,156,true,false,1,4,21,neg_temporal,negative,temporal,bugün
+P015,16,156,true,false,1,5,22,aff_reduplication,affirmative,reduplication,az
+P015,16,156,true,false,1,6,23,aff_filler,affirmative,filler,atıştırmalıkları
+P015,16,156,true,false,1,7,24,neg_manner,negative,manner,yavaşça
+P015,16,156,true,false,1,8,25,aff_temporal,affirmative,temporal,akşam
+P016,17,187,true,false,3,1,34,neg_manner,negative,manner,Aralıklı
+P016,17,187,true,false,3,2,35,aff_temporal,affirmative,temporal,Ders sırasında
+P016,17,187,true,false,3,3,36,aff_filler,affirmative,filler,Yenileri
+P016,17,187,true,false,3,4,37,neg_reduplication,negative,reduplication,Salya sümük
+P016,17,187,true,false,3,5,38,aff_manner,affirmative,manner,Çayda
+P016,17,187,true,false,3,6,39,neg_filler,negative,filler,Halası
+P016,17,187,true,false,3,7,40,neg_temporal,negative,temporal,Işık yansıması
+P016,17,187,true,false,3,8,41,aff_reduplication,affirmative,reduplication,Ama çocuklar
+P017,18,325,true,false,3,1,34,neg_manner,negative,manner,kıyıya yaklaşınca
+P017,18,325,true,false,3,2,35,aff_temporal,affirmative,temporal,ders esnasında hiç
+P017,18,325,true,false,3,3,36,aff_filler,affirmative,filler,yeni dosyaları
+P017,18,325,true,false,3,4,37,neg_reduplication,negative,reduplication,okul çıkışı annesini görünce
+P017,18,325,true,false,3,5,38,aff_manner,affirmative,manner,su ısıtıcıda
+P017,18,325,true,false,3,6,39,neg_filler,negative,filler,iş arkadaşlarına
+P017,18,325,true,false,3,7,40,neg_temporal,negative,temporal,gündüz asfaltta
+P017,18,325,true,false,3,8,41,aff_reduplication,affirmative,reduplication,hastanede yatarken
+P018,19,730,true,false,2,1,26,aff_reduplication,affirmative,reduplication,"Tekne denizin ortasında cayır cayır yandı, içindeki termos yanmadı."
+P018,19,730,true,false,2,2,27,neg_manner,negative,manner,"Öğrenci sınıfta sessizce konuşmadı, öğretmen konuştu."
+P018,19,730,true,false,2,3,28,aff_filler,affirmative,filler,"Kasap sokaktaki kedilere yaş mamaları verdi, terzi vermedi."
+P018,19,730,true,false,2,4,29,aff_temporal,affirmative,temporal,"Oğlan okulda dün ağladı, bugün ağlamadı."
+P018,19,730,true,false,2,5,30,neg_reduplication,negative,reduplication,"Su ocakta fokur fokur kaynamadı, hafif kaynadı."
+P018,19,730,true,false,2,6,31,neg_filler,negative,filler,"Bakkal raflara deterjanları yerleştirmedi, palete yerleştirdi."
+P018,19,730,true,false,2,7,32,aff_manner,affirmative,manner,"At arabası toprak yolda hızlıca ilerledi, çamurda ilerlemedi."
+P018,19,730,true,false,2,8,33,neg_temporal,negative,temporal,"Adam odasında sabah uyumadı, gece uyudu."
+P019,20,172,true,false,6,1,58,aff_temporal,affirmative,temporal,içindekiler
+P019,20,172,true,false,6,2,59,neg_reduplication,negative,reduplication,bağırarak
+P019,20,172,true,false,6,3,60,aff_filler,affirmative,filler,yenileri
+P019,20,172,true,false,6,4,61,aff_manner,affirmative,manner,evde
+P019,20,172,true,false,6,5,62,neg_temporal,negative,temporal,şimdi
+P019,20,172,true,false,6,6,63,neg_filler,negative,filler,başkasına
+P019,20,172,true,false,6,7,64,aff_reduplication,affirmative,reduplication,araba
+P019,20,172,true,false,6,8,65,neg_manner,negative,manner,sessizce
+P020,21,264,true,false,5,1,50,neg_temporal,negative,temporal,Orman
+P020,21,264,true,false,5,2,51,aff_reduplication,affirmative,reduplication,Öğretmen
+P020,21,264,true,false,5,3,52,aff_filler,affirmative,filler,Yenileri
+P020,21,264,true,false,5,4,53,neg_manner,negative,manner,Annesi
+P020,21,264,true,false,5,5,54,aff_temporal,affirmative,temporal,Yemek
+P020,21,264,true,false,5,6,55,neg_filler,negative,filler,Komşusuna
+P020,21,264,true,false,5,7,56,neg_reduplication,negative,reduplication,Hızlıca
+P020,21,264,true,false,5,8,57,aff_manner,affirmative,manner,Annesi
+P021,22,1005,true,false,1,1,18,neg_reduplication,negative,reduplication,bayrak
+P021,22,1005,true,false,1,2,19,aff_manner,affirmative,manner,yüksek sesle
+P021,22,1005,true,false,1,3,20,neg_filler,negative,filler,bir parça et
+P021,22,1005,true,false,1,4,21,neg_temporal,negative,temporal,eve gelince
+P021,22,1005,true,false,1,5,22,aff_reduplication,affirmative,reduplication,buz dolabında
+P021,22,1005,true,false,1,6,23,aff_filler,affirmative,filler,şampuanları
+P021,22,1005,true,false,1,7,24,neg_manner,negative,manner,karayolda
+P021,22,1005,true,false,1,8,25,aff_temporal,affirmative,temporal,gece
+P022,23,210,true,false,5,1,50,neg_temporal,negative,temporal,Dün
+P022,23,210,true,false,5,2,51,aff_reduplication,affirmative,reduplication,Sesli
+P022,23,210,true,false,5,3,52,aff_filler,affirmative,filler,yenilerini
+P022,23,210,true,false,5,4,53,neg_manner,negative,manner,hüngür hüngür
+P022,23,210,true,false,5,5,54,aff_temporal,affirmative,temporal,yeni
+P022,23,210,true,false,5,6,55,neg_filler,negative,filler,amcasına
+P022,23,210,true,false,5,7,56,neg_reduplication,negative,reduplication,hızlı
+P022,23,210,true,false,5,8,57,aff_manner,affirmative,manner,sessizce
+P023,24,266,true,false,1,1,18,neg_reduplication,negative,reduplication,motoru
+P023,24,266,true,false,1,2,19,aff_manner,affirmative,manner,sesli
+P023,24,266,true,false,1,3,20,neg_filler,negative,filler,et
+P023,24,266,true,false,1,4,21,neg_temporal,negative,temporal,evde
+P023,24,266,true,false,1,5,22,aff_reduplication,affirmative,reduplication,süt
+P023,24,266,true,false,1,6,23,aff_filler,affirmative,filler,peynirleri
+P023,24,266,true,false,1,7,24,neg_manner,negative,manner,yavaşça
+P023,24,266,true,false,1,8,25,aff_temporal,affirmative,temporal,gece
+P024,25,127,true,false,2,1,26,aff_reduplication,affirmative,reduplication,Mürettebat
+P024,25,127,true,false,2,2,27,neg_manner,negative,manner,Bağırarak
+P024,25,127,true,false,2,3,28,aff_filler,affirmative,filler,Et
+P024,25,127,true,false,2,4,29,aff_temporal,affirmative,temporal,Kız
+P024,25,127,true,false,2,5,30,neg_reduplication,negative,reduplication,Usul usul
+P024,25,127,true,false,2,6,31,neg_filler,negative,filler,Ekmekleri
+P024,25,127,true,false,2,7,32,aff_manner,affirmative,manner,Ali
+P024,25,127,true,false,2,8,33,neg_temporal,negative,temporal,Akşam
+P025,26,84,true,false,5,1,50,neg_temporal,negative,temporal,iskele
+P025,26,84,true,false,5,2,51,aff_reduplication,affirmative,reduplication,müdür
+P025,26,84,true,false,5,3,52,aff_filler,affirmative,filler,o
+P025,26,84,true,false,5,4,53,neg_manner,negative,manner,annesi
+P025,26,84,true,false,5,5,54,aff_temporal,affirmative,temporal,şimdi
+P025,26,84,true,false,5,6,55,neg_filler,negative,filler,annesi
+P025,26,84,true,false,5,7,56,neg_reduplication,negative,reduplication,bisiklet
+P025,26,84,true,false,5,8,57,aff_manner,affirmative,manner,çocuk
+P026,27,132,true,false,1,1,18,neg_reduplication,negative,reduplication,Çok az
+P026,27,132,true,false,1,2,19,aff_manner,affirmative,manner,Sesli
+P026,27,132,true,false,1,3,20,neg_filler,negative,filler,Sut
+P026,27,132,true,false,1,4,21,neg_temporal,negative,temporal,Bugün
+P026,27,132,true,false,1,5,22,aff_reduplication,affirmative,reduplication,Normlade
+P026,27,132,true,false,1,6,23,aff_filler,affirmative,filler,Çikolataları
+P026,27,132,true,false,1,7,24,neg_manner,negative,manner,Yavaşvq
+P026,27,132,true,false,1,8,25,aff_temporal,affirmative,temporal,Gece
+P027,28,204,true,true,6,1,58,aff_temporal,affirmative,temporal,Motoru
+P027,28,204,true,true,6,2,59,neg_reduplication,negative,reduplication,Sesli
+P027,28,204,true,true,6,3,60,aff_filler,affirmative,filler,Yenileri
+P027,28,204,true,true,6,4,61,aff_manner,affirmative,manner,Sesli
+P027,28,204,true,true,6,5,62,neg_temporal,negative,temporal,Şimdi
+P027,28,204,true,true,6,6,63,neg_filler,negative,filler,Eşyasıno
+P027,28,204,true,true,6,7,64,aff_reduplication,affirmative,reduplication,Hızlı
+P027,28,204,true,true,6,8,65,neg_manner,negative,manner,Sessiz
+P028,29,123,true,true,3,1,34,neg_manner,negative,manner,Yavaş yavaş
+P028,29,123,true,true,3,2,35,aff_temporal,affirmative,temporal,Derste
+P028,29,123,true,true,3,3,36,aff_filler,affirmative,filler,Yenileri
+P028,29,123,true,true,3,4,37,neg_reduplication,negative,reduplication,Sessiz
+P028,29,123,true,true,3,5,38,aff_manner,affirmative,manner,Yavaş yavaş
+P028,29,123,true,true,3,6,39,neg_filler,negative,filler,Eşyasını
+P028,29,123,true,true,3,7,40,neg_temporal,negative,temporal,Gündüz
+P028,29,123,true,true,3,8,41,aff_reduplication,affirmative,reduplication,Hemen
+P029,30,178,true,false,5,1,50,neg_temporal,negative,temporal,Dün
+P029,30,178,true,false,5,2,51,aff_reduplication,affirmative,reduplication,Sesli
+P029,30,178,true,false,5,3,52,aff_filler,affirmative,filler,Yenileri
+P029,30,178,true,false,5,4,53,neg_manner,negative,manner,Sonunda
+P029,30,178,true,false,5,5,54,aff_temporal,affirmative,temporal,Şimdi
+P029,30,178,true,false,5,6,55,neg_filler,negative,filler,Bugün
+P029,30,178,true,false,5,7,56,neg_reduplication,negative,reduplication,Düz
+P029,30,178,true,false,5,8,57,aff_manner,affirmative,manner,Hiç
+P030,31,276,true,false,3,1,34,neg_manner,negative,manner,yavaşça
+P030,31,276,true,false,3,2,35,aff_temporal,affirmative,temporal,dersten sonra
+P030,31,276,true,false,3,3,36,aff_filler,affirmative,filler,satış rakamlarını
+P030,31,276,true,false,3,4,37,neg_reduplication,negative,reduplication,sakince
+P030,31,276,true,false,3,5,38,aff_manner,affirmative,manner,yavaşça
+P030,31,276,true,false,3,6,39,neg_filler,negative,filler,ders notlarını
+P030,31,276,true,false,3,7,40,neg_temporal,negative,temporal,gündüz vakti
+P030,31,276,true,false,3,8,41,aff_reduplication,affirmative,reduplication,kolayca
+P031,32,175,true,false,1,1,18,neg_reduplication,negative,reduplication,Gemi
+P031,32,175,true,false,1,2,19,aff_manner,affirmative,manner,Yüksek sesle
+P031,32,175,true,false,1,3,20,neg_filler,negative,filler,Ciğer
+P031,32,175,true,false,1,4,21,neg_temporal,negative,temporal,Bugün
+P031,32,175,true,false,1,5,22,aff_reduplication,affirmative,reduplication,Çorba
+P031,32,175,true,false,1,6,23,aff_filler,affirmative,filler,Gofretleri
+P031,32,175,true,false,1,7,24,neg_manner,negative,manner,Yavaşça
+P031,32,175,true,false,1,8,25,aff_temporal,affirmative,temporal,Gecd
+P032,33,750,true,false,3,1,34,neg_manner,negative,manner,İkiye bölünerek yandı
+P032,33,750,true,false,3,2,35,aff_temporal,affirmative,temporal,Dersi dinledi konuşmadı
+P032,33,750,true,false,3,3,36,aff_filler,affirmative,filler,Yenilerini koymadı
+P032,33,750,true,false,3,4,37,neg_reduplication,negative,reduplication,Gene de
+P032,33,750,true,false,3,5,38,aff_manner,affirmative,manner,Yemek tencerede kaynadı
+P032,33,750,true,false,3,6,39,neg_filler,negative,filler,Kardeşinin kileri gönderdi
+P032,33,750,true,false,3,7,40,neg_temporal,negative,temporal,Gündüz ilerledi çünkü bu başka bir perspektif
+P032,33,750,true,false,3,8,41,aff_reduplication,affirmative,reduplication,Gecenin sessizliğinde uyumadı
+P033,34,123,true,false,5,1,50,neg_temporal,negative,temporal,bugün
+P033,34,123,true,false,5,2,51,aff_reduplication,affirmative,reduplication,sesli
+P033,34,123,true,false,5,3,52,aff_filler,affirmative,filler,yenilerini
+P033,34,123,true,false,5,4,53,neg_manner,negative,manner,hıçkırarak
+P033,34,123,true,false,5,5,54,aff_temporal,affirmative,temporal,şu an
+P033,34,123,true,false,5,6,55,neg_filler,negative,filler,mail
+P033,34,123,true,false,5,7,56,neg_reduplication,negative,reduplication,yavaşça
+P033,34,123,true,false,5,8,57,aff_manner,affirmative,manner,sessiz
+P034,35,237,true,false,1,1,18,neg_reduplication,negative,reduplication,alev alev
+P034,35,237,true,false,1,2,19,aff_manner,affirmative,manner,sesli
+P034,35,237,true,false,1,3,20,neg_filler,negative,filler,ciğer
+P034,35,237,true,false,1,4,21,neg_temporal,negative,temporal,bugün
+P034,35,237,true,false,1,5,22,aff_reduplication,affirmative,reduplication,şakır şakır
+P034,35,237,true,false,1,6,23,aff_filler,affirmative,filler,yumuşatıcıları
+P034,35,237,true,false,1,7,24,neg_manner,negative,manner,zorla
+P034,35,237,true,false,1,8,25,aff_temporal,affirmative,temporal,gece
+P035,36,423,true,false,4,1,42,aff_manner,affirmative,manner,yelkeni
+P035,36,423,true,false,4,2,43,neg_temporal,negative,temporal,derste
+P035,36,423,true,false,4,3,44,neg_filler,negative,filler,yenileri
+P035,36,423,true,false,4,4,45,aff_reduplication,affirmative,reduplication,kız
+P035,36,423,true,false,4,5,46,neg_manner,negative,manner,yavaş
+P035,36,423,true,false,4,6,47,aff_filler,affirmative,filler,amcasına
+P035,36,423,true,false,4,7,48,aff_temporal,affirmative,temporal,sabah
+P035,36,423,true,false,4,8,49,neg_reduplication,negative,reduplication,kedi
+P036,37,250,true,false,4,1,42,aff_manner,affirmative,manner,İçindeki insanlar
+P036,37,250,true,false,4,2,43,neg_temporal,negative,temporal,Tenefüste
+P036,37,250,true,false,4,3,44,neg_filler,negative,filler,Yeni evrakları koydu
+P036,37,250,true,false,4,4,45,aff_reduplication,affirmative,reduplication,Eve geldiğinde
+P036,37,250,true,false,4,5,46,neg_manner,negative,manner,Kettle da
+P036,37,250,true,false,4,6,47,aff_filler,affirmative,filler,Arkadaşlarına
+P036,37,250,true,false,4,7,48,aff_temporal,affirmative,temporal,Çamurlu yolda
+P036,37,250,true,false,4,8,49,neg_reduplication,negative,reduplication,Salonda
+P037,38,232,true,false,1,1,18,neg_reduplication,negative,reduplication,alev alev
+P037,38,232,true,false,1,2,19,aff_manner,affirmative,manner,bağırarak
+P037,38,232,true,false,1,3,20,neg_filler,negative,filler,kuru mamaları
+P037,38,232,true,false,1,4,21,neg_temporal,negative,temporal,bugün
+P037,38,232,true,false,1,5,22,aff_reduplication,affirmative,reduplication,tezgâhta
+P037,38,232,true,false,1,6,23,aff_filler,affirmative,filler,şampuanları
+P037,38,232,true,false,1,7,24,neg_manner,negative,manner,yavaşça
+P037,38,232,true,false,1,8,25,aff_temporal,affirmative,temporal,akşam
+P038,39,210,true,false,4,1,42,aff_manner,affirmative,manner,Yelkeni
+P038,39,210,true,false,4,2,43,neg_temporal,negative,temporal,Derste
+P038,39,210,true,false,4,3,44,neg_filler,negative,filler,Yeni evrakları
+P038,39,210,true,false,4,4,45,aff_reduplication,affirmative,reduplication,Evde
+P038,39,210,true,false,4,5,46,neg_manner,negative,manner,Kettle da
+P038,39,210,true,false,4,6,47,aff_filler,affirmative,filler,Teyzesine
+P038,39,210,true,false,4,7,48,aff_temporal,affirmative,temporal,Sabah
+P038,39,210,true,false,4,8,49,neg_reduplication,negative,reduplication,Kolayca
