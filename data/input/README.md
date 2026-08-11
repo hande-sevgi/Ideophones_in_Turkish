@@ -6,7 +6,7 @@ The input files are organized Excel workbooks rather than untouched Qualtrics ex
 
 | Study | Workbook | Input sheet | Recruited | Present in input sheet | Final analysed |
 |---|---|---|---:|---:|---:|
-| Preliminary study | `PreliminaryStudyContinuationTask_long_utf8.csv' | | 304 | 38 | 38 |
+| Preliminary study | `PreliminaryStudyContinuationTask_long_utf8.xlsx' | | 304 | 38 | 38 |
 | Experiment I | `Experiment_I.xlsx` | `List_Organized` | 60 | 50 | 50 |
 | Experiment II | `Experiment_II.xlsx` | `List_Organized` | 60 | 49 | 49 |
 | Experiment III | `Experiment_III.xlsx` | `List_Base_MainDocument` | 120 | 116 | 114 |
