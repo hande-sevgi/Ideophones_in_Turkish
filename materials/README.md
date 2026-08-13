@@ -5,7 +5,7 @@
 - `preliminary_completion_trials.csv` — preliminary completion-task experimental stimuli.
 - `experiment_1_trials.csv` — Experiment I experimental trials.
 - `experiment_1_fillers.csv` — Experiment I filler trials.
-- `experiment_1_catch.csv` — Experiment I catch trials.
+- `experiment_1_catch_trials.csv` — Experiment I catch trials.
 - `experiment_3_trials.csv` — Experiment III experimental trials.
 - `experiment_3_catch_trials.csv` — Experiment III catch trials.
 
