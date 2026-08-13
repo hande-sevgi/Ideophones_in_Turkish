@@ -11,7 +11,7 @@ All CSV files in this package use **UTF-8 with BOM (UTF-8-SIG)** and Unicode **N
 - `experiment_3_trials.csv` — Experiment III experimental trials.
 - `experiment_3_catch_trials.csv` — Experiment III catch trials.
 
-## The Experiment I and II differ only with respect to the word order.
+The Experiment I and II differ only with respect to the word order.
 
 ## Reading the files
 
