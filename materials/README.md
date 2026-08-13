@@ -1,4 +1,4 @@
-# Chapter 4 CSV files — Turkish UTF-8 edition
+# Materials used in the experiments
 
 All CSV files in this package use **UTF-8 with BOM (UTF-8-SIG)** and Unicode **NFC normalization**. This preserves Turkish characters such as **ç, ğ, ı, İ, ö, ş, ü** and is compatible with current versions of Excel, R, Python, and text editors.
 
