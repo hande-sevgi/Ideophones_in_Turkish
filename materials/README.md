@@ -9,7 +9,9 @@
 - `experiment_3_trials.csv` — Experiment III experimental trials.
 - `experiment_3_catch_trials.csv` — Experiment III catch trials.
 
-The Experiment I and II differ only with respect to the word order.
+## Relationship between Experiments I and II
+
+Experiments I and II use the same general factorial design and stimulus scenarios but differ in the constituent order of the target and locative adverbials.
 
 ## Reading the files
 
