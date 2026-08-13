@@ -26,3 +26,5 @@ The workflow follows these stages:
 8. validate the completed annotations against the accompanying codebook.
 
 The codebook is developed iteratively. Recurring constructions, ambiguous cases, and systematic model errors are documented as explicit annotation decisions, together with definitions, examples, and the reasoning behind each decision.
+
+As expected, stanza is working poorly (at least for the current purposes).
