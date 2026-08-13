@@ -27,4 +27,4 @@ The workflow follows these stages:
 
 The codebook is developed iteratively. Recurring constructions, ambiguous cases, and systematic model errors are documented as explicit annotation decisions, together with definitions, examples, and the reasoning behind each decision.
 
-As expected, stanza is working poorly (at least for the current purposes).
+As expected, stanza is working poorly (at least for the current purposes). On the ten-response pilot sample, the Turkish spaCy model produced more linguistically useful tokenization, POS, morphological, and dependency annotations than Stanza for the present research purpose.
